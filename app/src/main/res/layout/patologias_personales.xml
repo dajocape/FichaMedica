@@ -27,7 +27,7 @@
         android:id="@+id/button4" />
 
     <Button
-        android:text="<"
+        android:text="Atras"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_x="7dp"

@@ -1,12 +1,11 @@
-package com.ingsof.diagnostico;
+package ec.edu.espol.ingsoft.fichamedica;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
-public class diagnostico extends AppCompatActivity {
+public class Diagnostico extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +14,7 @@ public class diagnostico extends AppCompatActivity {
     }
 
     public void ingresarDiagnostico(View view) {
-        Intent intent = new Intent(this, diagnosticoNuevoIngreso.class);
+        Intent intent = new Intent(this, DiagnosticoNuevoIngreso.class);
         startActivity(intent);
     }
 }

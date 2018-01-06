@@ -1,11 +1,11 @@
-package com.ingsof.diagnostico;
+package ec.edu.espol.ingsoft.fichamedica;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class diagnosticoNuevoIngreso extends AppCompatActivity {
+public class DiagnosticoNuevoIngreso extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
