@@ -1,20 +1,21 @@
 package ec.edu.espol.ingsoft.fichamedica;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
+/**
+ * Created by jorge on 7/1/2018.
+ */
 
-public class Diagnostico extends AppCompatActivity {
+public class Diagnostico {
+    public String enfermedad;
+    public String codigo;
+    public String tipoEnfermedad;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diagnostico);
+    public Diagnostico() {
+        super();
     }
 
-    public void ingresarDiagnostico(View view) {
-        Intent intent = new Intent(this, DiagnosticoNuevoIngreso.class);
-        startActivity(intent);
+    public Diagnostico(String enfermedad, String codigo, String tipoEnfermedad) {
+        this.enfermedad = enfermedad;
+        this.codigo = codigo;
+        this.tipoEnfermedad = tipoEnfermedad;
     }
 }

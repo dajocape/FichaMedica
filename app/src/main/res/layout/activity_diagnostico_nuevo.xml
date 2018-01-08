@@ -4,11 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ec.edu.espol.ingsoft.fichamedica.DiagnosticoNuevoIngreso">
+    tools:context="ec.edu.espol.ingsoft.fichamedica.DiagnosticoNuevoActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,15 +35,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <ListView
-                android:id="@+id/listView"
-                android:layout_width="553dp"
+                android:id="@+id/lista"
+                android:layout_width="0dp"
                 android:layout_height="241dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/search" />
 
             <CheckBox
                 android:id="@+id/checkBox2"
@@ -67,13 +75,15 @@
                 android:text="Tipo de Enfermedad"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/listView" />
+                app:layout_constraintTop_toBottomOf="@+id/lista" />
 
             <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
+                android:id="@+id/search"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:defaultFocusHighlightEnabled="false"
+                android:focusedByDefault="false"
                 android:text="Ingrese una Enfermedad"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -86,7 +96,7 @@
                 android:layout_height="39dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Enfermedades"
+                android:text="Enfermedad"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

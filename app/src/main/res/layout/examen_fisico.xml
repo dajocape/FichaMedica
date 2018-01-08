@@ -10,14 +10,14 @@
         android:id="@+id/button-atras"
         android:layout_width="69dp"
         android:layout_height="49dp"
-        android:text="<"
+        android:text="atras"
         android:textSize="50px"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="51dp"
         tools:layout_editor_absoluteY="40dp" />
 
     <Button
-        android:id="@+id/button-guardar"
+        android:id="@+id/button_guardar"
         android:layout_width="157dp"
         android:layout_height="55dp"
         android:text="Guardar"
