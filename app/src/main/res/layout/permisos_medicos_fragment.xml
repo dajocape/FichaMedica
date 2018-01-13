@@ -53,5 +53,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchGenerarPermiso" />
 
+    <TextView
+        android:id="@+id/observacion"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="40dp"
+        android:background="#8EAAFC"
+        android:paddingLeft="25dp"
+        android:paddingTop="7dp"
+        android:text="Observación"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText13"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/area_observacion"
+        android:layout_width="0dp"
+        android:layout_height="306dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:hint="Agregar observación"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observacion" />
 
 </android.support.constraint.ConstraintLayout>
