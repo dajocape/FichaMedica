@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by jorge on 7/1/2018.
  */
@@ -16,9 +18,9 @@ public class EnfermedadesAdapter extends ArrayAdapter<Enfermedad> {
 
     Context context;
     int layoutResourceId;
-    Enfermedad data[] =null;
+    ArrayList<Enfermedad> data=null;
 
-    public EnfermedadesAdapter(Context context, int layaoutResouceId, Enfermedad[] data) {
+    public EnfermedadesAdapter(Context context, int layaoutResouceId, ArrayList<Enfermedad> data) {
         super(context,layaoutResouceId,data);
 
         this.context=context;
@@ -43,7 +45,7 @@ public class EnfermedadesAdapter extends ArrayAdapter<Enfermedad> {
             holder=(EnfermedadHolder)row.getTag();
         }
 
-        Enfermedad enfermedades = data[position];
+        Enfermedad enfermedades = data.get(position);
         holder.nombre.setText(enfermedades.nombre);
         holder.codigo.setText(enfermedades.codigo);
 
