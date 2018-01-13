@@ -7,7 +7,7 @@
     tools:context="ec.edu.espol.ingsoft.fichamedica.EnfermeriaPlanDeCuidadosActivity">
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textViewPresion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText15"
+        android:id="@+id/textPulsoPorMinutoEnf"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -29,5 +29,5 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPresion" />
 </android.support.constraint.ConstraintLayout>
