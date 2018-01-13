@@ -60,7 +60,7 @@
         android:layout_marginTop="48dp"
         android:inputType="textPersonName"
         android:paddingLeft="40px"
-        android:text="Descripción del examen físico"
+        android:hint="Descripción del examen físico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
