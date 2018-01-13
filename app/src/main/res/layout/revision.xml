@@ -5,94 +5,104 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button_back"
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="48dp"
-        android:text="Atras"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button_guardar"
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="48dp"
-        android:text="Guardar"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/enfermedad"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="48dp"
-        android:background="#8EAAFC"
-        android:paddingLeft="50px"
-        android:paddingTop="15px"
-        android:text="Enfermedad"
-        android:textColor="#FFFFFF"
-        android:textSize="40px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_guardar"
-        tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/textEnfermedad"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="48dp"
+                android:hint="Descripción de la consulta"
+                android:inputType="textMultiLine"
+                android:paddingLeft="40px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/enfermedad"
+                tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/revision"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="48dp"
-        android:background="#8EAAFC"
-        android:paddingLeft="50px"
-        android:paddingTop="15px"
-        android:text="Revisión actual de órganos y sistemas"
-        android:textColor="#FFFFFF"
-        android:textSize="40px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEnfermedad"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/enfermedad"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="48dp"
+                android:background="#8EAAFC"
+                android:paddingLeft="50px"
+                android:paddingTop="15px"
+                android:text="Enfermedad"
+                android:textColor="#FFFFFF"
+                android:textSize="40px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_guardar"
+                tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/textEnfermedad"
-        android:layout_width="0dp"
-        android:layout_height="202dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="48dp"
-        android:inputType="textPersonName"
-        android:paddingLeft="40px"
-        android:hint="Descripción de la consulta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enfermedad"
-        tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="0dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="48dp"
+                android:text="Atras"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/textRevision"
-        android:layout_width="0dp"
-        android:layout_height="202dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="48dp"
-        android:inputType="textPersonName"
-        android:paddingLeft="40px"
-        android:hint="Descripción de la consulta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/revision"
-        tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/textRevision"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="48dp"
+                android:hint="Descripción de la consulta"
+                android:inputType="textMultiLine"
+                android:paddingLeft="40px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/revision"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/button_guardar"
+                android:layout_width="0dp"
+                android:layout_height="49dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginTop="48dp"
+                android:text="Guardar"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/revision"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="48dp"
+                android:background="#8EAAFC"
+                android:paddingLeft="50px"
+                android:paddingTop="15px"
+                android:text="Revisión actual de órganos y sistemas"
+                android:textColor="#FFFFFF"
+                android:textSize="40px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textEnfermedad"
+                tools:ignore="MissingConstraints" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

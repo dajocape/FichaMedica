@@ -1,21 +1,28 @@
 package ec.edu.espol.ingsoft.fichamedica;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-public class PermisosMedicosFragment extends Fragment {
+import android.support.v7.app.AppCompatActivity;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Switch;
 
-    private static final String TAG = "PermisosMedicosFragment";
 
-    @Nullable
+public class PermisosMedicosFragment extends AppCompatActivity {
+    Switch switch_generar;
+    EditText text_permiso_medico;
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater .inflate(R.layout.permisos_medicos_fragment,container,false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.permisos_medicos_fragment);
 
-        return view;
+        switch_generar = (Switch) findViewById(R.id.switchGenerarPermiso);
+        text_permiso_medico = (EditText) findViewById(R.id.editText13);
+        switch_generar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(switch_generar.isChecked()) text_permiso_medico.setEnabled(true);
+                else text_permiso_medico.setEnabled(false);
+            }
+        });
     }
 }
