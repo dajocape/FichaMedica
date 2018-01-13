@@ -137,7 +137,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewMotivo" />
 
             <EditText
-                android:id="@+id/textTemperatura"
+                android:id="@+id/textTemperaturaEnf"
                 android:layout_width="0dp"
                 android:layout_height="53dp"
                 android:layout_marginEnd="24dp"
