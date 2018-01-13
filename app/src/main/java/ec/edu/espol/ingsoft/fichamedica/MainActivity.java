@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new FichaMedicaFragment(), "Ficha Medica");
         adapter.addFragment(new ConsultaMedicaFragment(), "Consulta Medica");
-        adapter.addFragment(new PermisosMedicosFragment(), "Permisos Medicos");
+        //adapter.addFragment(new PermisosMedicosFragment(), "Permisos Medicos");
         adapter.addFragment(new ReporteMedicoFragment(), "Reporte Medico");
         viewPager.setAdapter(adapter);
     }
