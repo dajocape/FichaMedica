@@ -7,70 +7,92 @@
 
     <Button
         android:id="@+id/button_back"
-        android:layout_width="64dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
         android:text="Atras"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button_guardar"
-        android:layout_width="126dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginTop="48dp"
         android:text="Guardar"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="424dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/enfermedad"
-        android:layout_width="504dp"
+        android:layout_width="0dp"
         android:layout_height="42dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
         android:background="#8EAAFC"
         android:paddingLeft="50px"
         android:paddingTop="15px"
         android:text="Enfermedad"
         android:textColor="#FFFFFF"
         android:textSize="40px"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="103dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_guardar"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/revision"
-        android:layout_width="504dp"
+        android:layout_width="0dp"
         android:layout_height="42dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
         android:background="#8EAAFC"
         android:paddingLeft="50px"
         android:paddingTop="15px"
         android:text="Revisión actual de órganos y sistemas"
         android:textColor="#FFFFFF"
         android:textSize="40px"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="434dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEnfermedad"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/textEnfermedad"
-        android:layout_width="498dp"
+        android:layout_width="0dp"
         android:layout_height="202dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="185dp"
-        android:text="Descripción de la consulta"
         android:paddingLeft="40px"
+        android:text="Descripción de la consulta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enfermedad"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/textRevision"
-        android:layout_width="498dp"
+        android:layout_width="0dp"
         android:layout_height="202dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
         android:inputType="textPersonName"
-        android:text="Descripción de la consulta"
         android:paddingLeft="40px"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="539dp"
+        android:text="Descripción de la consulta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/revision"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
