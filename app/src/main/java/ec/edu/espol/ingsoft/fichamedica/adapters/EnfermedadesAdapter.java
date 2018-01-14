@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica;
+package ec.edu.espol.ingsoft.fichamedica.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import ec.edu.espol.ingsoft.fichamedica.R;
+import ec.edu.espol.ingsoft.fichamedica.entidades.Enfermedad;
 
 /**
  * Created by jorge on 7/1/2018.

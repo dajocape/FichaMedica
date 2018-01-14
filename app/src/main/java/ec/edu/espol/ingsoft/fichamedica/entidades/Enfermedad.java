@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica;
+package ec.edu.espol.ingsoft.fichamedica.entidades;
 
 /**
  * Created by jorge on 7/1/2018.

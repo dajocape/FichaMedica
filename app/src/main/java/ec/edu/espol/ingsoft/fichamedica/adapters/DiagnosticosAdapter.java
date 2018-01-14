@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica;
+package ec.edu.espol.ingsoft.fichamedica.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import ec.edu.espol.ingsoft.fichamedica.R;
+import ec.edu.espol.ingsoft.fichamedica.entidades.Diagnostico;
+import ec.edu.espol.ingsoft.fichamedica.entidades.Enfermedad;
+
 /**
  * Created by jorge on 7/1/2018.
  */
@@ -16,9 +22,9 @@ public class DiagnosticosAdapter extends ArrayAdapter<Diagnostico> {
 
     Context context;
     int layoutResourceId;
-    Diagnostico data[] =null;
+    ArrayList<Diagnostico> data=null;
 
-    public DiagnosticosAdapter(Context context, int layaoutResouceId, Diagnostico[] data) {
+    public DiagnosticosAdapter(Context context, int layaoutResouceId, ArrayList<Diagnostico> data) {
         super(context,layaoutResouceId,data);
 
         this.context=context;
@@ -44,7 +50,7 @@ public class DiagnosticosAdapter extends ArrayAdapter<Diagnostico> {
             holder=(DiagnosticoHolder)row.getTag();
         }
 
-        Diagnostico diagnosticos = data[position];
+        Diagnostico diagnosticos = data.get(position);
         holder.enfermedad.setText(diagnosticos.enfermedad);
         holder.codigo.setText(diagnosticos.codigo);
         holder.tipoEnfermedad.setText(diagnosticos.tipoEnfermedad);

@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica;
+package ec.edu.espol.ingsoft.fichamedica.utilidades;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,11 +19,13 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Utilidades.CREAR_TABLA_ENFERMEDAD);
+        db.execSQL(Utilidades.CREAR_TABLA_DIAGNOSTICO);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAntigua, int versionNueva) {//Version antigua y nueva de la base de datos
         db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_ENFERMEDAD);
+        db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_DIAGNOSTICO);
         onCreate(db);
     }
 }
