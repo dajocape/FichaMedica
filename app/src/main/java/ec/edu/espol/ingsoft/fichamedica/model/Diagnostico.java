@@ -1,45 +1,26 @@
-package ec.edu.espol.ingsoft.fichamedica.entidades;
+package ec.edu.espol.ingsoft.fichamedica.model;
+
+import android.support.annotation.StringDef;
+
+import com.orm.SugarRecord;
+import com.orm.dsl.Unique;
 
 /**
  * Created by jorge on 7/1/2018.
  */
 
-public class Diagnostico {
-    public String enfermedad;
-    public String codigo;
-    public String tipoEnfermedad;
+public class Diagnostico extends SugarRecord {
+
+    @Unique
+    Enfermedad enfermedad;
+
+    String descripcion;
 
     public Diagnostico() {
-        super();
     }
 
-    public Diagnostico(String enfermedad, String codigo, String tipoEnfermedad) {
+    public Diagnostico(Enfermedad enfermedad, String descripcion) {
         this.enfermedad = enfermedad;
-        this.codigo = codigo;
-        this.tipoEnfermedad = tipoEnfermedad;
-    }
-
-    public String getEnfermedad() {
-        return enfermedad;
-    }
-
-    public void setEnfermedad(String enfermedad) {
-        this.enfermedad = enfermedad;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getTipoEnfermedad() {
-        return tipoEnfermedad;
-    }
-
-    public void setTipoEnfermedad(String tipoEnfermedad) {
-        this.tipoEnfermedad = tipoEnfermedad;
+        this.descripcion = descripcion;
     }
 }

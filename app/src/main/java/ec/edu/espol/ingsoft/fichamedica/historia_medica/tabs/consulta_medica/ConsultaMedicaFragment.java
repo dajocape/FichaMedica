@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs;
+package ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

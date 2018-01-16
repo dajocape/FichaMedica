@@ -1,35 +1,24 @@
-package ec.edu.espol.ingsoft.fichamedica.entidades;
+package ec.edu.espol.ingsoft.fichamedica.model;
+
+import com.orm.SugarRecord;
+import com.orm.dsl.Unique;
 
 /**
  * Created by jorge on 7/1/2018.
  */
 
-public class Enfermedad {
-    public String nombre;
-    public String codigo;
+public class Enfermedad extends SugarRecord{
 
-    public Enfermedad(){
-        super();
+    @Unique
+    int codigo_cie10;
+
+    String nombre_cie10;
+
+    public Enfermedad() {
     }
 
-    public Enfermedad(String nombre, String codigo) {
-        this.nombre = nombre;
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public Enfermedad(int codigo_cie10, String nombre_cie10) {
+        this.codigo_cie10 = codigo_cie10;
+        this.nombre_cie10 = nombre_cie10;
     }
 }
