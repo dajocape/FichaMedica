@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FichaMedica</string>
+
+    <!--Historia Medica-->
+    <string name="historia_medica_title">Historia Médica</string>
+    
 </resources>

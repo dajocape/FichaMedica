@@ -1,10 +1,8 @@
-package ec.edu.espol.ingsoft.fichamedica.utilidades;
+package ec.edu.espol.ingsoft.fichamedica.util;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import ec.edu.espol.ingsoft.fichamedica.utilidades.Utilidades;
 
 /**
  * Created by jorge on 13/1/2018.

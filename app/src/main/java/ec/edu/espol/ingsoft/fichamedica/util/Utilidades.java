@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica.utilidades;
+package ec.edu.espol.ingsoft.fichamedica.util;
 
 /**
  * Created by jorge on 13/1/2018.

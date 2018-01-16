@@ -11,11 +11,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import ec.edu.espol.ingsoft.fichamedica.utilidades.ConexionSQLiteHelper;
-import ec.edu.espol.ingsoft.fichamedica.adapters.DiagnosticosAdapter;
+import ec.edu.espol.ingsoft.fichamedica.util.ConexionSQLiteHelper;
+import ec.edu.espol.ingsoft.fichamedica.adapter.DiagnosticosAdapter;
 import ec.edu.espol.ingsoft.fichamedica.R;
-import ec.edu.espol.ingsoft.fichamedica.entidades.Diagnostico;
-import ec.edu.espol.ingsoft.fichamedica.utilidades.Utilidades;
+import ec.edu.espol.ingsoft.fichamedica.model.Diagnostico;
+import ec.edu.espol.ingsoft.fichamedica.util.Utilidades;
 
 public class DiagnosticoActivity extends AppCompatActivity {
 

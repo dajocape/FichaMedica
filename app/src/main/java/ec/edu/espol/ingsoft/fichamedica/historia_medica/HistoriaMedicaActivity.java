@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica;
+package ec.edu.espol.ingsoft.fichamedica.HistoriaMedica;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -6,23 +6,31 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+import ec.edu.espol.ingsoft.fichamedica.util.NonScrollableViewPager;
+import ec.edu.espol.ingsoft.fichamedica.R;
+import ec.edu.espol.ingsoft.fichamedica.util.SectionsPageAdapter;
+import ec.edu.espol.ingsoft.fichamedica.HistoriaMedica.tabs.ConsultaMedicaFragment;
+import ec.edu.espol.ingsoft.fichamedica.HistoriaMedica.tabs.FichaMedicaFragment;
+import ec.edu.espol.ingsoft.fichamedica.HistoriaMedica.tabs.PermisoMedicoFragment;
+import ec.edu.espol.ingsoft.fichamedica.HistoriaMedica.tabs.ReporteMedicoFragment;
 
-    private static final String TAG = "MainActivity";
+public class HistoriaMedicaActivity extends AppCompatActivity {
+
+    private static final String TAG = "HistoriaMedicaActivity";
 
     private SectionsPageAdapter mSectionsPageAdapter;
 
-    private ViewPager mViewPager;
+    private NonScrollableViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_historia_medica);
         Log.d(TAG, "onCreate: Starting.");
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         setupViewPager(mViewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -34,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new FichaMedicaFragment(), "Ficha Medica");
         adapter.addFragment(new ConsultaMedicaFragment(), "Consulta Medica");
-        //adapter.addFragment(new PermisosMedicosFragment(), "Permisos Medicos");
+        adapter.addFragment(new PermisoMedicoFragment(), "Permisos Medicos");
         adapter.addFragment(new ReporteMedicoFragment(), "Reporte Medico");
         viewPager.setAdapter(adapter);
     }

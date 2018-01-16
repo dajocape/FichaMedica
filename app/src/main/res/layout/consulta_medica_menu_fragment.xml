@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_signos_vitales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signos Vitales" />
+
+        <Button
+            android:id="@+id/btn_revision_medica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Revision Medica" />
+
+        <Button
+            android:id="@+id/btn_examen_fisico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Examen Fisico" />
+
+        <Button
+            android:id="@+id/btn_diagnostico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Diagnostico" />
+
+        <Button
+            android:id="@+id/btn_prescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Preescripcion" />
+
+        <Button
+            android:id="@+id/btn_permisos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Permisos" />
+
+    </LinearLayout>
+</RelativeLayout>
