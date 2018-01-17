@@ -58,9 +58,9 @@ public class DiagnosticoActivity extends AppCompatActivity {
 
             while(cursor.moveToNext()){
                 diagnostico= new Diagnostico();
-                diagnostico.setEnfermedad(cursor.getString(0));
-                diagnostico.setCodigo(cursor.getString(1));
-                diagnostico.setTipoEnfermedad(cursor.getString(2));
+//                diagnostico.setEnfermedad(cursor.getString(0));
+//                diagnostico.setCodigo(cursor.getString(1));
+//                diagnostico.setTipoEnfermedad(cursor.getString(2));
                 diagnosticosList.add(diagnostico);
             }
 

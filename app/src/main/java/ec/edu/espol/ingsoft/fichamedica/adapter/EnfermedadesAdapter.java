@@ -48,9 +48,9 @@ public class EnfermedadesAdapter extends ArrayAdapter<Enfermedad> {
             holder=(EnfermedadHolder)row.getTag();
         }
 
-        Enfermedad enfermedades = data.get(position);
-        holder.nombre.setText(enfermedades.nombre);
-        holder.codigo.setText(enfermedades.codigo);
+//        Enfermedad enfermedades = data.get(position);
+//        holder.nombre.setText(enfermedades.nombre);
+//        holder.codigo.setText(enfermedades.codigo);
 
         return row;
     }

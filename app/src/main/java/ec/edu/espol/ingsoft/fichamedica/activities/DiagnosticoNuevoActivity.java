@@ -128,8 +128,8 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
 
         while(cursor.moveToNext()){
             enfermedad= new Enfermedad();
-            enfermedad.setNombre(cursor.getString(0));
-            enfermedad.setCodigo(cursor.getString(1));
+//            enfermedad.setNombre(cursor.getString(0));
+//            enfermedad.setCodigo(cursor.getString(1));
             enfermedadesList.add(enfermedad);
         }
     }

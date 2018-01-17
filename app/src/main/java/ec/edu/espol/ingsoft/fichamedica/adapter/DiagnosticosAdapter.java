@@ -49,10 +49,10 @@ public class DiagnosticosAdapter extends ArrayAdapter<Diagnostico> {
             holder=(DiagnosticoHolder)row.getTag();
         }
 
-        Diagnostico diagnosticos = data.get(position);
-        holder.enfermedad.setText(diagnosticos.enfermedad);
-        holder.codigo.setText(diagnosticos.codigo);
-        holder.tipoEnfermedad.setText(diagnosticos.tipoEnfermedad);
+//        Diagnostico diagnosticos = data.get(position);
+//        holder.enfermedad.setText(diagnosticos.enfermedad);
+//        holder.codigo.setText(diagnosticos.codigo);
+//        holder.tipoEnfermedad.setText(diagnosticos.tipoEnfermedad);
 
         return row;
     }
