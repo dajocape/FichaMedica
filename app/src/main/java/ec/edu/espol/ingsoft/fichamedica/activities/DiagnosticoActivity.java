@@ -22,14 +22,10 @@ public class DiagnosticoActivity extends AppCompatActivity {
     ListView visualizadorLista;
     ArrayList<Diagnostico> diagnosticosList;
 
-    ConexionSQLiteHelper conn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagnostico);
-
-        conn = new ConexionSQLiteHelper(this,Utilidades.NOMBRE_BASE,null,1);
 
         llenarListaDiagnosticos();
 
@@ -46,30 +42,7 @@ public class DiagnosticoActivity extends AppCompatActivity {
     }
 
     private void llenarListaDiagnosticos() {
-        SQLiteDatabase db=conn.getReadableDatabase();
-
-        Diagnostico diagnostico = null;
-
-        diagnosticosList = new ArrayList<Diagnostico>();
-
-        try{
-            //select * from Diagnosticos
-            Cursor cursor=db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_DIAGNOSTICO,null);
-
-            while(cursor.moveToNext()){
-                diagnostico= new Diagnostico();
-//                diagnostico.setEnfermedad(cursor.getString(0));
-//                diagnostico.setCodigo(cursor.getString(1));
-//                diagnostico.setTipoEnfermedad(cursor.getString(2));
-                diagnosticosList.add(diagnostico);
-            }
-
-        }catch (Exception e){
-            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
-
-        }
-
-
+       diagnosticosList = (ArrayList<Diagnostico>) Diagnostico.listAll(Diagnostico.class);
 
     }
 }

@@ -1,7 +1,5 @@
 package ec.edu.espol.ingsoft.fichamedica.model;
 
-import android.support.annotation.StringDef;
-
 import com.orm.SugarRecord;
 import com.orm.dsl.Unique;
 
@@ -13,15 +11,14 @@ public class Diagnostico extends SugarRecord {
 
     @Unique
     Enfermedad enfermedad;
-
-    String descripcion;
+    String tipoEnfermedad;
 
     public Diagnostico() {
     }
 
     public Diagnostico(Enfermedad enfermedad, String descripcion) {
         this.enfermedad = enfermedad;
-        this.descripcion = descripcion;
+        this.tipoEnfermedad = descripcion;
     }
 
     public Enfermedad getEnfermedad() {
@@ -32,11 +29,11 @@ public class Diagnostico extends SugarRecord {
         this.enfermedad = enfermedad;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getTipoEnfermedad() {
+        return tipoEnfermedad;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setTipoEnfermedad(String tipoEnfermedad) {
+        this.tipoEnfermedad = tipoEnfermedad;
     }
 }

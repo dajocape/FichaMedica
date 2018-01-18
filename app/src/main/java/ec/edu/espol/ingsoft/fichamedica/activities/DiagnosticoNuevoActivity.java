@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import ec.edu.espol.ingsoft.fichamedica.model.Diagnostico;
 import ec.edu.espol.ingsoft.fichamedica.util.ConexionSQLiteHelper;
 import ec.edu.espol.ingsoft.fichamedica.adapter.EnfermedadesAdapter;
 import ec.edu.espol.ingsoft.fichamedica.R;
@@ -27,14 +28,13 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
 
     ListView visualizadorLista;
     AutoCompleteTextView buscador;
-    ArrayList<Enfermedad> enfermedadesList;
-
     RadioButton pres,def;
-
-    String enfermedad,codigo,tipoEnfermedad;
-
-    ConexionSQLiteHelper conn;
     Button guardar;
+
+    ArrayList<Enfermedad> enfermedadesList;
+    Enfermedad enfermedad;
+    String tipoEnfermedad;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +45,8 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
         def  = (RadioButton)findViewById(R.id.rbDef);
         guardar=(Button)findViewById(R.id.btnRegistrarDiagnostico);
 
-        conn = new ConexionSQLiteHelper(this,Utilidades.NOMBRE_BASE,null,1);
-
         llenarListaEnfermedades();
+        enfermedad = new Enfermedad();
 
         EnfermedadesAdapter adapter = new EnfermedadesAdapter(this,R.layout.listview_item_row_enfermedad,enfermedadesList);
 
@@ -67,8 +66,9 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
                 TextView name =(TextView)view.findViewById(R.id.tvNombre);//Esto se saca del activity item row Enfermedad
                 TextView code =(TextView)view.findViewById(R.id.tvCodigo);//Esto se saca del activity item row Enfermedad
                 buscador.setText(name.getText());
-                enfermedad = name.getText().toString();
-                codigo = code.getText().toString();
+
+                enfermedad.setNombre_cie10(name.getText().toString());
+                enfermedad.setCodigo_cie10(code.getText().toString());
             }
         });
 
@@ -101,36 +101,15 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
     }
 
     private void writeDiagnostico(){
+        Diagnostico nuevo_diagnostico = new Diagnostico();
+        nuevo_diagnostico.setEnfermedad(enfermedad);
+        nuevo_diagnostico.setTipoEnfermedad(tipoEnfermedad);
 
-        SQLiteDatabase db= conn.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(Utilidades.DIAGNOSTICO_CAMPO_ENFERMEDAD,enfermedad);
-        values.put(Utilidades.DIAGNOSTICO_CAMPO_CODIGO,codigo);
-        values.put(Utilidades.DIAGNOSTICO_CAMPO_TIPO_ENFERMEDAD,tipoEnfermedad);
-
-        db.insert(Utilidades.TABLA_DIAGNOSTICO, null,values);
-
-        db.close();
+        nuevo_diagnostico.save();
 
     }
 
     private void llenarListaEnfermedades() {
-        SQLiteDatabase db=conn.getReadableDatabase();
-
-        Enfermedad enfermedad=null;
-
-        enfermedadesList = new ArrayList<Enfermedad>();
-
-        //select * from Usuarios
-
-        Cursor cursor=db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_ENFERMEDAD,null);
-
-        while(cursor.moveToNext()){
-            enfermedad= new Enfermedad();
-//            enfermedad.setNombre(cursor.getString(0));
-//            enfermedad.setCodigo(cursor.getString(1));
-            enfermedadesList.add(enfermedad);
-        }
+        enfermedadesList = (ArrayList<Enfermedad>) Enfermedad.listAll(Enfermedad.class);
     }
 }
