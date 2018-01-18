@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -13,23 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/textEnfermedad"
-                android:layout_width="0dp"
-                android:layout_height="130dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="48dp"
-                android:hint="Descripción de la consulta"
-                android:inputType="textMultiLine"
-                android:paddingLeft="40px"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/enfermedad"
-                tools:ignore="MissingConstraints" />
-
             <TextView
-                android:id="@+id/enfermedad"
+                android:id="@+id/tvMotivo"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:layout_marginEnd="8dp"
@@ -38,31 +24,31 @@
                 android:background="#8EAAFC"
                 android:paddingLeft="50px"
                 android:paddingTop="15px"
-                android:text="Enfermedad"
+                android:text="Motivo de la consulta"
                 android:textColor="#FFFFFF"
                 android:textSize="40px"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_guardar"
+                app:layout_constraintTop_toBottomOf="@+id/guardarMotivoEnf"
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:id="@+id/textRevision"
+                android:id="@+id/txtMotivo"
                 android:layout_width="0dp"
                 android:layout_height="130dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:hint="Descripción de la consulta"
+                android:hint="No refiere motivo de la consulta"
                 android:inputType="textMultiLine"
                 android:paddingLeft="40px"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/revision"
+                app:layout_constraintTop_toBottomOf="@+id/tvMotivo"
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/button_guardar"
+                android:id="@+id/guardarMotivoEnf"
                 android:layout_width="0dp"
                 android:layout_height="49dp"
                 android:layout_marginEnd="8dp"
@@ -72,25 +58,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
-
-            <TextView
-                android:id="@+id/revision"
-                android:layout_width="0dp"
-                android:layout_height="42dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:background="#8EAAFC"
-                android:paddingLeft="50px"
-                android:paddingTop="15px"
-                android:text="Revisión actual de órganos y sistemas"
-                android:textColor="#FFFFFF"
-                android:textSize="40px"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textEnfermedad"
-                tools:ignore="MissingConstraints" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

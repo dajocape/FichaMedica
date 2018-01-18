@@ -28,14 +28,14 @@ public class PermisoMedicoFragment extends Fragment {
 
         switch_generar = view.findViewById(R.id.switchGenerarPermiso);
         text_permiso_medico = view.findViewById(R.id.editText13);
-        fecha_de = view.findViewById(R.id.fecha_de);
-        fecha_hasta = view.findViewById(R.id.fecha_hasta);
+        //fecha_de = view.findViewById(R.id.fecha_de);
+        //fecha_hasta = view.findViewById(R.id.fecha_hasta);
 
         cal = Calendar.getInstance();
         int año = cal.get(Calendar.YEAR);
         int mes = cal.get(Calendar.MONTH);
         int dia = cal.get(Calendar.DAY_OF_MONTH);
-        fecha_de.init(año, mes, dia, null);
+        //fecha_de.init(año, mes, dia, null);
 
         switch_generar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

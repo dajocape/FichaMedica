@@ -9,11 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -37,11 +32,11 @@
                 android:layout_width="351dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginEnd="48dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
                 android:text="Permisos Medicos"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,9 +64,9 @@
                 android:id="@+id/switchGenerarPermiso"
                 android:layout_width="0dp"
                 android:layout_height="62dp"
-                android:layout_marginEnd="48dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
                 android:background="#8EAAFC"
                 android:paddingLeft="25dp"
                 android:paddingTop="7dp"
@@ -88,7 +83,7 @@
                 android:id="@+id/label_de"
                 android:layout_width="43dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="60dp"
                 android:text="De:"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,9 +104,9 @@
                 android:layout_width="0dp"
                 android:layout_height="95dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:calendarViewShown="false"
-                android:datePickerMode="1"
+                android:datePickerMode="spinner"
                 android:paddingBottom="1dp"
                 android:paddingTop="1dp"
                 android:spinnersShown='true'
@@ -122,10 +117,10 @@
                 android:id="@+id/fecha_hasta"
                 android:layout_width="0dp"
                 android:layout_height="95dp"
-                android:layout_marginEnd="80dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
                 android:calendarViewShown="false"
-                android:datePickerMode="1"
+                android:datePickerMode="spinner"
                 android:paddingBottom="1dp"
                 android:paddingTop="1dp"
                 android:spinnersShown='true'
