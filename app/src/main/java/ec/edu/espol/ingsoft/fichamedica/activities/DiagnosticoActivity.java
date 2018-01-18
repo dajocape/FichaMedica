@@ -42,7 +42,6 @@ public class DiagnosticoActivity extends AppCompatActivity {
     }
 
     private void llenarListaDiagnosticos() {
-       diagnosticosList = (ArrayList<Diagnostico>) Diagnostico.listAll(Diagnostico.class);
-
+        diagnosticosList = (ArrayList<Diagnostico>) Diagnostico.listAll(Diagnostico.class);
     }
 }

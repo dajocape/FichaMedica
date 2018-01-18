@@ -9,24 +9,33 @@ import com.orm.dsl.Unique;
 
 public class Diagnostico extends SugarRecord {
 
-    @Unique
-    Enfermedad enfermedad;
+    String enfermedad;
+    String codigo;
     String tipoEnfermedad;
 
     public Diagnostico() {
     }
 
-    public Diagnostico(Enfermedad enfermedad, String descripcion) {
+    public Diagnostico(String enfermedad, String codigo, String tipoEnfermedad) {
         this.enfermedad = enfermedad;
-        this.tipoEnfermedad = descripcion;
+        this.codigo = codigo;
+        this.tipoEnfermedad = tipoEnfermedad;
     }
 
-    public Enfermedad getEnfermedad() {
+    public String getEnfermedad() {
         return enfermedad;
     }
 
-    public void setEnfermedad(Enfermedad enfermedad) {
+    public void setEnfermedad(String enfermedad) {
         this.enfermedad = enfermedad;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getTipoEnfermedad() {

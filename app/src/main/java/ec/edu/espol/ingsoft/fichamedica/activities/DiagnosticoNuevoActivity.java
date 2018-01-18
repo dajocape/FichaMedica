@@ -32,9 +32,9 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
     Button guardar;
 
     ArrayList<Enfermedad> enfermedadesList;
-    Enfermedad enfermedad;
+    String enfermedad;
+    String codigo;
     String tipoEnfermedad;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,6 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
         guardar=(Button)findViewById(R.id.btnRegistrarDiagnostico);
 
         llenarListaEnfermedades();
-        enfermedad = new Enfermedad();
 
         EnfermedadesAdapter adapter = new EnfermedadesAdapter(this,R.layout.listview_item_row_enfermedad,enfermedadesList);
 
@@ -67,16 +66,14 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
                 TextView code =(TextView)view.findViewById(R.id.tvCodigo);//Esto se saca del activity item row Enfermedad
                 buscador.setText(name.getText());
 
-                enfermedad.setNombre_cie10(name.getText().toString());
-                enfermedad.setCodigo_cie10(code.getText().toString());
+                enfermedad = name.getText().toString();
+                codigo = code.getText().toString();
             }
         });
 
         guardar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(),"Diagnostico Guardado",Toast.LENGTH_SHORT).show();
                 registrarDiagnostico();
-                irDiagnostico(v);
             }
         });
     }
@@ -85,8 +82,6 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DiagnosticoActivity.class);
         startActivity(intent);
     }
-
-
 
     public void registrarDiagnostico(){
         if (pres.isChecked()){
@@ -103,9 +98,16 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
     private void writeDiagnostico(){
         Diagnostico nuevo_diagnostico = new Diagnostico();
         nuevo_diagnostico.setEnfermedad(enfermedad);
+        nuevo_diagnostico.setCodigo(codigo);
         nuevo_diagnostico.setTipoEnfermedad(tipoEnfermedad);
 
-        nuevo_diagnostico.save();
+        try{
+            nuevo_diagnostico.save();
+            Toast.makeText(getApplicationContext(),"Diagnostico Guardado",Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
 
     }
 
