@@ -10,49 +10,49 @@ import android.widget.Toast;
 import java.util.List;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
-import ec.edu.espol.ingsoft.fichamedica.model.Prescripcion;
+import ec.edu.espol.ingsoft.fichamedica.model.PlanCuidadosEnfermeria;
 
-public class PrescripcionActivity extends AppCompatActivity {
+public class EnfermeriaPlanDeCuidadosActivity extends AppCompatActivity {
 
     EditText contenido;
     Button guardar;
-    List<Prescripcion> prescripcion;
+    List<PlanCuidadosEnfermeria> planCuidadosEnfermeria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prescripcion);
+        setContentView(R.layout.activity_enfermeria_plan_de_cuidados);
 
-        contenido = (EditText) findViewById(R.id.etPresContenido);
-        guardar = (Button)findViewById(R.id.btnPresGuardar);
+        contenido = (EditText) findViewById(R.id.etPlanEnferContenido);
+        guardar = (Button)findViewById(R.id.btnPlanEnferGuardar);
 
-        readPrescripcion();
+        readPlanCuidadosEnfermeria();
 
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                writePrescripcion();
+                writePlanCuidadosEnfermeria();
             }
         });
     }
 
-    public void readPrescripcion(){
-        prescripcion = Prescripcion.listAll(Prescripcion.class);
+    public void readPlanCuidadosEnfermeria(){
+        planCuidadosEnfermeria = PlanCuidadosEnfermeria.listAll(PlanCuidadosEnfermeria.class);
 
-        if(!prescripcion.isEmpty()) {
-            contenido.setText(prescripcion.get(prescripcion.size()-1).getContenido());
+        if(!planCuidadosEnfermeria.isEmpty()) {
+            contenido.setText(planCuidadosEnfermeria.get(planCuidadosEnfermeria.size()-1).getContenido());
         }
     }
 
-    public void writePrescripcion(){
-        Prescripcion nueva_prescripcion = new Prescripcion();
+    public void writePlanCuidadosEnfermeria(){
+        PlanCuidadosEnfermeria nuevo_planCuidadosEnfermeria = new PlanCuidadosEnfermeria();
 
         String texto = contenido.getText().toString();
 
         if(!texto.isEmpty()){
-            nueva_prescripcion.setContenido(texto);
+            nuevo_planCuidadosEnfermeria.setContenido(texto);
             try{
-                nueva_prescripcion.save();
+                nuevo_planCuidadosEnfermeria.save();
             }catch(Exception e){
                 Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
             }
@@ -61,4 +61,3 @@ public class PrescripcionActivity extends AppCompatActivity {
         }
     }
 }
-

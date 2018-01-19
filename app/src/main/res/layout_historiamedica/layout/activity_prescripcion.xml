@@ -7,7 +7,7 @@
     tools:context="ec.edu.espol.ingsoft.fichamedica.activities.PrescripcionActivity">
 
     <TextView
-        android:id="@+id/textViewSignos"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,11 +25,12 @@
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.343"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSignos">
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <EditText
-            android:id="@+id/etDiagEnferContenido"
+            android:id="@+id/etPresContenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="12"
@@ -38,7 +39,7 @@
             android:inputType="textMultiLine" />
 
         <Button
-            android:id="@+id/btnGuardar"
+            android:id="@+id/btnPresGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -27,7 +27,7 @@ public class PermisoMedicoFragment extends Fragment {
         View view = inflater.inflate(R.layout.permiso_medico_fragment, container, false);
 
         switch_generar = view.findViewById(R.id.switchGenerarPermiso);
-        text_permiso_medico = view.findViewById(R.id.editText13);
+        //text_permiso_medico = view.findViewById(R.id.editText13);
         //fecha_de = view.findViewById(R.id.fecha_de);
         //fecha_hasta = view.findViewById(R.id.fecha_hasta);
 

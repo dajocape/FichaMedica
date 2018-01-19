@@ -4,30 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ec.edu.espol.ingsoft.fichamedica.EnfermeriaPlanDeCuidadosActivity">
+    tools:context="ec.edu.espol.ingsoft.fichamedica.activities.EnfermeriaPlanDeCuidadosActivity">
 
     <TextView
-        android:id="@+id/textViewPresion"
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Plan cuidado de enfermeria:"
+        android:text="Plan de cuidados de Enfermeria"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/textPulsoPorMinutoEnf"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="No refiere ningun plan, ingrese uno"
-        android:inputType="textMultiLine"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPresion" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+        <EditText
+            android:id="@+id/etPlanEnferContenido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="12"
+            android:ems="10"
+            android:hint="No refiere plan alguno"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btnPlanEnferGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Guardar"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etDiagEnferContenido"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/etDiagEnferContenido" />
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
