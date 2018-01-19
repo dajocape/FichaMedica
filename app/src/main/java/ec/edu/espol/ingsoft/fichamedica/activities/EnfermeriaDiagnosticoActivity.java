@@ -10,49 +10,49 @@ import android.widget.Toast;
 import java.util.List;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
-import ec.edu.espol.ingsoft.fichamedica.model.Prescripcion;
+import ec.edu.espol.ingsoft.fichamedica.model.DiagnosticoEnfermeria;
 
-public class PrescripcionActivity extends AppCompatActivity {
+public class EnfermeriaDiagnosticoActivity extends AppCompatActivity {
 
     EditText contenido;
     Button guardar;
-    List<Prescripcion> prescripcion;
+    List<DiagnosticoEnfermeria> diagnosticoEnfermeria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prescripcion);
+        setContentView(R.layout.activity_enfermeria_diagnostico);
 
         contenido = (EditText) findViewById(R.id.etDiagEnferContenido);
-        guardar = (Button)findViewById(R.id.btnGuardar);
+        guardar = (Button)findViewById(R.id.btnDiagEnferGuardar);
 
-        readPrescripcion();
+        readDiagnosticoEnfermeria();
 
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                writePrescripcion();
+                writeDiagnosticoEnfermeria();
             }
         });
     }
 
-    public void readPrescripcion(){
-        prescripcion = Prescripcion.listAll(Prescripcion.class);
+    public void readDiagnosticoEnfermeria(){
+        diagnosticoEnfermeria = DiagnosticoEnfermeria.listAll(DiagnosticoEnfermeria.class);
 
-        if(!prescripcion.isEmpty()) {
-            contenido.setText(prescripcion.get(prescripcion.size()-1).getContenido());
+        if(!diagnosticoEnfermeria.isEmpty()) {
+            contenido.setText(diagnosticoEnfermeria.get(diagnosticoEnfermeria.size()-1).getContenido());
         }
     }
 
-    public void writePrescripcion(){
-        Prescripcion nueva_prescripcion = new Prescripcion();
+    public void writeDiagnosticoEnfermeria(){
+        DiagnosticoEnfermeria nuevo_diagnostico = new DiagnosticoEnfermeria();
 
         String texto = contenido.getText().toString();
 
         if(!texto.isEmpty()){
-            nueva_prescripcion.setContenido(texto);
+            nuevo_diagnostico.setContenido(texto);
             try{
-                nueva_prescripcion.save();
+                nuevo_diagnostico.save();
             }catch(Exception e){
                 Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
             }
@@ -61,4 +61,3 @@ public class PrescripcionActivity extends AppCompatActivity {
         }
     }
 }
-

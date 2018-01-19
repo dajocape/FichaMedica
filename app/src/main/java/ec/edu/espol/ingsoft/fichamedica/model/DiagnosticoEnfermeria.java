@@ -6,14 +6,14 @@ import com.orm.SugarRecord;
  * Created by jorge on 18/1/2018.
  */
 
-public class Prescripcion extends SugarRecord {
+public class DiagnosticoEnfermeria extends SugarRecord {
 
     String contenido;
 
-    public Prescripcion() {
+    public DiagnosticoEnfermeria() {
     }
 
-    public Prescripcion(String contenido) {
+    public DiagnosticoEnfermeria(String contenido) {
         this.contenido = contenido;
     }
 

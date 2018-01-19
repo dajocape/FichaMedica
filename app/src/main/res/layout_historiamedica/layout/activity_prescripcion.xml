@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSignos">
 
         <EditText
-            android:id="@+id/etContenido"
+            android:id="@+id/etDiagEnferContenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="12"
@@ -43,10 +43,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Guardar"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etContenido"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etDiagEnferContenido"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/etContenido" />
+            app:layout_constraintStart_toEndOf="@+id/etDiagEnferContenido" />
 
     </LinearLayout>
 
