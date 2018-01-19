@@ -53,7 +53,7 @@
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:id="@+id/textPresionEnfermeria"
+                android:id="@+id/ET_presionArterial"
                 android:layout_width="0dp"
                 android:layout_height="53dp"
                 android:layout_marginEnd="8dp"
@@ -83,11 +83,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textPresionEnfermeria"
+                app:layout_constraintTop_toBottomOf="@+id/ET_presionArterial"
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:id="@+id/textPulsoPorMinutoEnf"
+                android:id="@+id/ET_pulsoPorMinuto"
                 android:layout_width="0dp"
                 android:layout_height="53dp"
                 android:layout_marginEnd="8dp"
@@ -117,7 +117,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textPulsoPorMinutoEnf"
+                app:layout_constraintTop_toBottomOf="@+id/ET_pulsoPorMinuto"
                 tools:ignore="MissingConstraints" />
 
             <EditText
@@ -137,7 +137,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewMotivo" />
 
             <EditText
-                android:id="@+id/textTemperatura"
+                android:id="@+id/ET_temperatura"
                 android:layout_width="0dp"
                 android:layout_height="53dp"
                 android:layout_marginEnd="8dp"
@@ -167,9 +167,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.625"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTemperatura" />
+                app:layout_constraintTop_toBottomOf="@+id/ET_temperatura" />
+
+            <Button
+                android:id="@+id/BTN_guardar"
+                android:layout_width="282dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="108dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="48dp"
+                android:text="Guardar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.952"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textMotivoConsultaEnf" />
 
         </android.support.constraint.ConstraintLayout>
+
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
