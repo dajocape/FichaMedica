@@ -9,9 +9,6 @@ import com.orm.dsl.Unique;
 
 public class SignosVitales extends SugarRecord {
 
-    @Unique
-    ConsultaMedica consultaMedica;
-
     //@Unique
     // ConsultaEnfermeria consultaEnfermeria;
 
@@ -26,14 +23,7 @@ public class SignosVitales extends SugarRecord {
     public SignosVitales() {
     }
 
-    public SignosVitales(int presion_arterial, int frecuencia_cardiaca, int temperatura) {
-        this.presion_arterial = presion_arterial;
-        this.frecuencia_cardiaca = frecuencia_cardiaca;
-        this.temperatura = temperatura;
-    }
-
-    public SignosVitales(ConsultaMedica consultaMedica, int presion_arterial, int frecuencia_cardiaca, int frecuencia_respiratoria, float talla, float peso, float IMC, int temperatura) {
-        this.consultaMedica = consultaMedica;
+    public SignosVitales(int presion_arterial, int frecuencia_cardiaca, int frecuencia_respiratoria, float talla, float peso, float IMC, int temperatura) {
         this.presion_arterial = presion_arterial;
         this.frecuencia_cardiaca = frecuencia_cardiaca;
         this.frecuencia_respiratoria = frecuencia_respiratoria;
@@ -41,14 +31,6 @@ public class SignosVitales extends SugarRecord {
         this.peso = peso;
         this.IMC = IMC;
         this.temperatura = temperatura;
-    }
-
-    public ConsultaMedica getConsultaMedica() {
-        return consultaMedica;
-    }
-
-    public void setConsultaMedica(ConsultaMedica consultaMedica) {
-        this.consultaMedica = consultaMedica;
     }
 
     public int getPresion_arterial() {

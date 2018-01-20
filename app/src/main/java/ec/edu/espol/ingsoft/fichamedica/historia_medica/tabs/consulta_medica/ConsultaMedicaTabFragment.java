@@ -17,13 +17,12 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
     private static boolean INICIALIZADO = false;
 
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.consulta_medica_tab_fragment, container, false);
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null && !INICIALIZADO) {
 
             // Create a new Fragment to be placed in the activity layout
             ConsultaMedicaMenuFragment sidemenuFragment = new ConsultaMedicaMenuFragment();
@@ -37,17 +36,13 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
 
             // Agregar el fragmento de contenido al FrameLayout 'content_container'
             FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-
             transaction.add(R.id.sidemenu_container, sidemenuFragment);
-
-            if (!INICIALIZADO){
-                transaction.replace(R.id.content_container, signosVitalesFragment);
-            }
-
+            transaction.replace(R.id.content_container, signosVitalesFragment);
             transaction.commit();
-        }
 
-        INICIALIZADO = true;
+            INICIALIZADO = true;
+
+        }
 
         return view;
     }
@@ -62,9 +57,9 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
             fragment = new RevisionMedicaContentFragment();
         } else if (type == 3) {
             fragment = new ExamenFisicoContentFragment();
-        }else if (type ==4) {
+        } else if (type == 4) {
             fragment = new Fragment_diagnostico();
-        }else if (type == 5) {
+        } else if (type == 5) {
             fragment = new PrescripcionContentFragment();
         } else if (type == 6) {
             fragment = new PermisoMedicoContentFragment();
