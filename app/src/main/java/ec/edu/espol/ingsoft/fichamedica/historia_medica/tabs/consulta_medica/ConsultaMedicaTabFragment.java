@@ -14,6 +14,10 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
 
     private static final String TAG = "ConsultaMedicaTabFragment";
 
+    private static boolean INICIALIZADO = false;
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -32,11 +36,18 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
             SignosVitalesContentFragment signosVitalesFragment = new SignosVitalesContentFragment();
 
             // Agregar el fragmento de contenido al FrameLayout 'content_container'
-            getChildFragmentManager().beginTransaction()
-                    .add(R.id.sidemenu_container, sidemenuFragment)
-                    .add(R.id.content_container, signosVitalesFragment)
-                    .commit();
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+
+            transaction.add(R.id.sidemenu_container, sidemenuFragment);
+
+            if (!INICIALIZADO){
+                transaction.replace(R.id.content_container, signosVitalesFragment);
+            }
+
+            transaction.commit();
         }
+
+        INICIALIZADO = true;
 
         return view;
     }

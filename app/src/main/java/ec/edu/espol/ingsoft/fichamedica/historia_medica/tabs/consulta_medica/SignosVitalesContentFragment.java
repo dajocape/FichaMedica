@@ -14,29 +14,29 @@ import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 public class SignosVitalesContentFragment extends Fragment {
 
     private static final String TAG = "SignosVitalesContentFragment";
-    EditText ET_presionArterial,
-            ET_pulsoPorMinuto,
-            ET_temperatura,
-            ET_motivoConsulta;
-    Button BTN_guardar;
+    EditText txtPresionArterial,
+            txtPulsoPorMinuto,
+            txtTemperatura,
+            txtmotivoConsulta;
+    Button btnGuardar;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.signos_vitales_content_fragment,container,false);
 
-        ET_presionArterial = view.findViewById(R.id.ET_presionArterial);
-        ET_pulsoPorMinuto = view.findViewById(R.id.ET_pulsoPorMinuto);
-        ET_temperatura = view.findViewById(R.id.ET_temperatura);
-        BTN_guardar = view.findViewById(R.id.BTN_guardar);
+        txtPresionArterial = view.findViewById(R.id.txt_presion_arterial);
+        txtPulsoPorMinuto = view.findViewById(R.id.txt_pulso_por_minuto);
+        txtTemperatura = view.findViewById(R.id.txt_temperatura);
+        btnGuardar = view.findViewById(R.id.btn_guardar);
 
-        BTN_guardar.setOnClickListener(new View.OnClickListener() {
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SignosVitales signosVitalesPaciente = new SignosVitales(
-                        Integer.parseInt(ET_presionArterial.getText().toString()),
-                        Integer.parseInt(ET_pulsoPorMinuto.getText().toString()),
-                        Integer.parseInt(ET_temperatura.getText().toString()));
+                        Integer.parseInt(txtPresionArterial.getText().toString()),
+                        Integer.parseInt(txtPulsoPorMinuto.getText().toString()),
+                        Integer.parseInt(txtTemperatura.getText().toString()));
                 signosVitalesPaciente.save();
             }
         });

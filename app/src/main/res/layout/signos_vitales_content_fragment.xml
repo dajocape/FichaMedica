@@ -36,7 +36,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/ET_presionArterial"
+                android:id="@+id/txt_presion_arterial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -60,7 +60,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/ET_pulsoPorMinuto"
+                android:id="@+id/txt_pulso_por_minuto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -84,7 +84,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/ET_temperatura"
+                android:id="@+id/txt_temperatura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -107,7 +107,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/textMotivoConsultaEnf"
+                android:id="@+id/txt_motivo_consulta_enf"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
                 android:layout_marginEnd="8dp"
@@ -119,7 +119,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/BTN_guardar"
+                android:id="@+id/btn_guardar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
