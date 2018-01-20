@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.registrarEnfermedadActivity"
+            android:name=".historia_medica.HistoriaMedicaActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PreescripcionActivity" />
+
         <activity android:name=".activities.DiagnosticoActivity" />
         <activity android:name=".activities.DiagnosticoNuevoActivity" />
-        <activity android:name=".EnfermeriaDiagnosticoActivity" />
-        <activity android:name=".EnfermeriaPlanDeCuidadosActivity" />
+
+
 
         <meta-data
             android:name="DATABASE"
