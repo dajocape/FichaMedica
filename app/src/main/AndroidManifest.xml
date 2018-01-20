@@ -24,9 +24,6 @@
             android:name="DATABASE"
             android:value="db_ficha_medica" />
         <meta-data
-            android:name="VERSION"
-            android:value="1" />
-        <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
         <meta-data
