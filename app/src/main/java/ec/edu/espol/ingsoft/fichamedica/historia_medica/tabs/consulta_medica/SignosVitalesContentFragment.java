@@ -11,9 +11,9 @@ import android.widget.Button;
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
-public class SignosVitalesFragment extends Fragment {
+public class SignosVitalesContentFragment extends Fragment {
 
-    private static final String TAG = "SignosVitalesFragment";
+    private static final String TAG = "SignosVitalesContentFragment";
     EditText ET_presionArterial,
             ET_pulsoPorMinuto,
             ET_temperatura,
@@ -23,7 +23,7 @@ public class SignosVitalesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.signos_vitales_fragment,container,false);
+        View view = inflater.inflate(R.layout.signos_vitales_content_fragment,container,false);
 
         ET_presionArterial = view.findViewById(R.id.ET_presionArterial);
         ET_pulsoPorMinuto = view.findViewById(R.id.ET_pulsoPorMinuto);

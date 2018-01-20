@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
 
-public class ConsultaMedicaFragment extends Fragment implements ConsultaMedicaMenuFragment.OnItemSelectedListener {
+public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedicaMenuFragment.OnItemSelectedListener {
 
-    private static final String TAG = "ConsultaMedicaFragment";
+    private static final String TAG = "ConsultaMedicaTabFragment";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.consulta_medica_fragment, container, false);
+        View view = inflater.inflate(R.layout.consulta_medica_tab_fragment, container, false);
 
         if (savedInstanceState == null) {
 
@@ -29,9 +29,9 @@ public class ConsultaMedicaFragment extends Fragment implements ConsultaMedicaMe
             // sidemenuFragment.setArguments(getIntent().getExtras());
 
             // Agregar la primera vista "Signos Vitales" por defecto
-            SignosVitalesFragment signosVitalesFragment = new SignosVitalesFragment();
+            SignosVitalesContentFragment signosVitalesFragment = new SignosVitalesContentFragment();
 
-            // Add the fragment to the 'fragment_container' FrameLayout
+            // Agregar el fragmento de contenido al FrameLayout 'content_container'
             getChildFragmentManager().beginTransaction()
                     .add(R.id.sidemenu_container, sidemenuFragment)
                     .add(R.id.content_container, signosVitalesFragment)
@@ -46,17 +46,17 @@ public class ConsultaMedicaFragment extends Fragment implements ConsultaMedicaMe
         Fragment fragment = null;
 
         if (type == 1) {
-            fragment = new SignosVitalesFragment();
+            fragment = new SignosVitalesContentFragment();
         } else if (type == 2) {
-            fragment = new RevisionMedicaFragment();
+            fragment = new RevisionMedicaContentFragment();
         } else if (type == 3) {
-            fragment = new ExamenFisicoFragment();
+            fragment = new ExamenFisicoContentFragment();
         }else if (type ==4) {
             fragment = new Fragment_diagnostico();
         }else if (type == 5) {
             fragment = new Fragment_prescripcion();
         } else if (type == 6) {
-            fragment = new PermisoMedicoFragment();
+            fragment = new PermisoMedicoContentFragment();
         } else {
             return;
         }
@@ -68,7 +68,7 @@ public class ConsultaMedicaFragment extends Fragment implements ConsultaMedicaMe
         transaction.replace(R.id.content_container, fragment);
         transaction.addToBackStack(null);
 
-        // Commit the transaction
+        // Hacer commit a la transacción
         transaction.commit();
     }
 }

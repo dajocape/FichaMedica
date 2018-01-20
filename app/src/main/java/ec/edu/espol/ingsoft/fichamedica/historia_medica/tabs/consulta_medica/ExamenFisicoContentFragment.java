@@ -13,9 +13,9 @@ import ec.edu.espol.ingsoft.fichamedica.R;
  * Created by Anny on 07/01/2018.
  */
 
-public class ExamenFisicoFragment extends Fragment {
+public class ExamenFisicoContentFragment extends Fragment {
 
-    private static final String TAG = "ExamenFisicoFragment";
+    private static final String TAG = "ExamenFisicoContentFragment";
 
     @Nullable
     @Override

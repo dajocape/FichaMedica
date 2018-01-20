@@ -6,12 +6,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.ficha_medica.FichaMedicaTabFragment;
+import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.permisos_medicos.PermisosMedicosTabFragment;
+import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.reporte_medico.ReporteMedicoTabFragment;
 import ec.edu.espol.ingsoft.fichamedica.util.NonScrollableViewPager;
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.util.SectionsPageAdapter;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.ConsultaMedicaFragment;
-import ec.edu.espol.ingsoft.fichamedica.FichaMedicaFragment;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.PermisoMedicoFragment;
+import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.ConsultaMedicaTabFragment;
 
 public class HistoriaMedicaActivity extends AppCompatActivity {
 
@@ -39,10 +40,10 @@ public class HistoriaMedicaActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FichaMedicaFragment(), "Ficha Medica");
-        adapter.addFragment(new ConsultaMedicaFragment(), "Consulta Medica");
-        //adapter.addFragment(new PermisoMedicoFragment(), "Permisos Medicos");
-        adapter.addFragment(new ReporteMedicoFragment(), "Reporte Medico");
+        adapter.addFragment(new FichaMedicaTabFragment(), "Ficha Medica");
+        adapter.addFragment(new ConsultaMedicaTabFragment(), "Consulta Medica");
+        adapter.addFragment(new PermisosMedicosTabFragment(), "Permisos Medicos");
+        adapter.addFragment(new ReporteMedicoTabFragment(), "Reporte Medico");
         viewPager.setAdapter(adapter);
     }
 }
