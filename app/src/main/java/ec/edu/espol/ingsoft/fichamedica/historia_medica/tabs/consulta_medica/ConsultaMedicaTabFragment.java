@@ -54,7 +54,7 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
         }else if (type ==4) {
             fragment = new Fragment_diagnostico();
         }else if (type == 5) {
-            fragment = new Fragment_prescripcion();
+            fragment = new PrescripcionContentFragment();
         } else if (type == 6) {
             fragment = new PermisoMedicoContentFragment();
         } else {

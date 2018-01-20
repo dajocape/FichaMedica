@@ -1,182 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="243dp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8sp">
+
             <TextView
                 android:id="@+id/textViewSignos"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginEnd="8sp"
-                android:layout_marginStart="8sp"
-                android:layout_marginTop="8sp"
-                android:padding="10sp"
                 android:background="#8EAAFC"
+                android:padding="10sp"
                 android:text="Signos Vitales"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textViewPresion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:background="#8EAAFC"
                 android:text="Presion Arterial"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSignos"
-                tools:ignore="MissingConstraints" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/ET_presionArterial"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:hint="No refiere toma de presion"
                 android:inputType="textMultiLine"
                 android:singleLine="false"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPresion" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textViewPulso"
-                android:layout_width="0dp"
-                android:layout_height="27dp"
-                android:layout_margin="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:background="#8EAAFC"
-                android:text="Pulso por minuto"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ET_presionArterial"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/ET_pulsoPorMinuto"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
+                android:background="#8EAAFC"
+                android:text="Pulso por minuto"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/ET_pulsoPorMinuto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
                 android:hint="No refiere toma de pulso por minuto"
                 android:inputType="textMultiLine"
                 android:singleLine="false"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPulso" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textViewTemperatura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:background="#8EAAFC"
                 android:text="Temperatura"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ET_pulsoPorMinuto"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textMotivoConsultaEnf"
-                android:layout_width="0dp"
-                android:layout_height="37dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:hint="Motivo de la Consulta"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMotivo" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/ET_temperatura"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:hint="No refiere toma de temperatura"
                 android:inputType="textMultiLine"
                 android:singleLine="false"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewTemperatura" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textViewMotivo"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:padding="10sp"
                 android:background="#8EAAFC"
+                android:padding="10sp"
                 android:text="Motivo de la Consulta"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.625"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ET_temperatura" />
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/textMotivoConsultaEnf"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:hint="Motivo de la Consulta"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/BTN_guardar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
                 android:text="Guardar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textMotivoConsultaEnf" />
+                android:textSize="20sp" />
 
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

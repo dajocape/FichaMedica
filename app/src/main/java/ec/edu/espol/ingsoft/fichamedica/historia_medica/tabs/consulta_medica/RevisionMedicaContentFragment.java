@@ -16,7 +16,7 @@ public class RevisionMedicaContentFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.revision_medica_fragment, container, false);
+        View view = inflater.inflate(R.layout.revision_medica_content_fragment, container, false);
 
         return view;
     }

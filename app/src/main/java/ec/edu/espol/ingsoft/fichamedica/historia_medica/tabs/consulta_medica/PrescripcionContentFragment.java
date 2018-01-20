@@ -15,10 +15,10 @@ import java.util.List;
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.Prescripcion;
 
-public class Fragment_prescripcion extends Fragment {
+public class PrescripcionContentFragment extends Fragment {
 
 
-    private static final String TAG = "Fragment_prescripcion";
+    private static final String TAG = "PrescripcionContentFragment";
 
     EditText contenido;
     Button guardar;
@@ -27,10 +27,10 @@ public class Fragment_prescripcion extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_prescripcion, container, false);
+        View view = inflater.inflate(R.layout.prescripcion_content_fragment, container, false);
 
-        contenido = (EditText) view.findViewById(R.id.etPresContenido);
-        guardar = (Button) view.findViewById(R.id.btnPresGuardar);
+        contenido = (EditText) view.findViewById(R.id.txt_prescripcion);
+        guardar = (Button) view.findViewById(R.id.btn_guardar);
 
         readPrescripcion();
 

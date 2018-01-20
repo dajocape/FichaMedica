@@ -33,4 +33,36 @@ public class ConsultaMedica extends SugarRecord {
         this.motivo = motivo;
         this.revision_aparatos = revision_aparatos;
     }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Diagnostico getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(Diagnostico diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
+    public String getRevision_aparatos() {
+        return revision_aparatos;
+    }
+
+    public void setRevision_aparatos(String revision_aparatos) {
+        this.revision_aparatos = revision_aparatos;
+    }
 }
