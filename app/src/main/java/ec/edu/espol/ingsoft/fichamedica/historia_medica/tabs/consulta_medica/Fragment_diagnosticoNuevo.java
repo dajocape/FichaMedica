@@ -1,12 +1,13 @@
-package ec.edu.espol.ingsoft.fichamedica.activities;
+package ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -18,13 +19,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import ec.edu.espol.ingsoft.fichamedica.model.Diagnostico;
-import ec.edu.espol.ingsoft.fichamedica.util.ConexionSQLiteHelper;
 import ec.edu.espol.ingsoft.fichamedica.adapter.EnfermedadesAdapter;
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.Enfermedad;
-import ec.edu.espol.ingsoft.fichamedica.util.Utilidades;
 
-public class DiagnosticoNuevoActivity extends AppCompatActivity {
+public class Fragment_diagnosticoNuevo extends Fragment {
+
+    private static final String TAG = "Fragment_diagnosticoNuevo";
 
     ListView visualizadorLista;
     AutoCompleteTextView buscador;
@@ -36,28 +37,26 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
     String codigo;
     String tipoEnfermedad;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diagnostico_nuevo);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_diagnostico_nuevo, container, false);
 
-        pres = (RadioButton)findViewById(R.id.rbPres);
-        def  = (RadioButton)findViewById(R.id.rbDef);
-        guardar=(Button)findViewById(R.id.btnRegistrarDiagnostico);
+        pres = (RadioButton)view.findViewById(R.id.rbPres);
+        def  = (RadioButton)view.findViewById(R.id.rbDef);
+        guardar=(Button)view.findViewById(R.id.btnRegistrarDiagnostico);
 
         llenarListaEnfermedades();
 
-        EnfermedadesAdapter adapter = new EnfermedadesAdapter(this,R.layout.listview_item_row_enfermedad,enfermedadesList);
+        EnfermedadesAdapter adapter = new EnfermedadesAdapter(view.getContext(),R.layout.listview_item_row_enfermedad,enfermedadesList);
 
-        visualizadorLista = (ListView) findViewById(R.id.lista);
+        visualizadorLista = (ListView) view.findViewById(R.id.lista);
 
         View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row_enfermedad,null);
         visualizadorLista.addHeaderView(header);
         visualizadorLista.setAdapter(adapter);
 
-
-        buscador = (AutoCompleteTextView) findViewById(R.id.search);
-
+        buscador = (AutoCompleteTextView) view.findViewById(R.id.search);
 
         visualizadorLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -76,11 +75,13 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
                 registrarDiagnostico();
             }
         });
+        return view;
     }
 
     public void irDiagnostico(View view) {
-        Intent intent = new Intent(this, DiagnosticoActivity.class);
+        Intent intent = new Intent(view.getContext(), Fragment_diagnostico.class); //Esto da error
         startActivity(intent);
+
     }
 
     public void registrarDiagnostico(){
@@ -91,7 +92,7 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
             tipoEnfermedad = def.getText().toString();
             writeDiagnostico();
         }else{
-            Toast.makeText(getApplicationContext(),"Debe seleccionar un tipo de Enfermedad",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Debe seleccionar un tipo de Enfermedad",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -103,12 +104,10 @@ public class DiagnosticoNuevoActivity extends AppCompatActivity {
 
         try{
             nuevo_diagnostico.save();
-            Toast.makeText(getApplicationContext(),"Diagnostico Guardado",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Diagnostico Guardado",Toast.LENGTH_SHORT).show();
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
-
-
     }
 
     private void llenarListaEnfermedades() {

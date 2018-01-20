@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ec.edu.espol.ingsoft.fichamedica.activities.EnfermeriaPlanDeCuidadosActivity">
+    tools:context="ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.Fragment_prescripcion">
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Plan de cuidados de Enfermeria"
+        android:text="Prescripción"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,20 +25,21 @@
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.343"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <EditText
-            android:id="@+id/etPlanEnferContenido"
+            android:id="@+id/etPresContenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="12"
             android:ems="10"
-            android:hint="No refiere plan alguno"
+            android:hint="Ingrese una prescripción"
             android:inputType="textMultiLine" />
 
         <Button
-            android:id="@+id/btnPlanEnferGuardar"
+            android:id="@+id/btnPresGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,4 +50,6 @@
             app:layout_constraintStart_toEndOf="@+id/etDiagEnferContenido" />
 
     </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>

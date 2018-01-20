@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica.activities;
+package ec.edu.espol.ingsoft.fichamedica;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +9,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.PlanCuidadosEnfermeria;
 
-public class EnfermeriaPlanDeCuidadosActivity extends AppCompatActivity {
+public class Fragment_enfermeriaPlanDeCuidados extends AppCompatActivity {
 
     EditText contenido;
     Button guardar;
@@ -21,7 +20,7 @@ public class EnfermeriaPlanDeCuidadosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enfermeria_plan_de_cuidados);
+        setContentView(R.layout.fragment_enfermeria_plan_de_cuidados);
 
         contenido = (EditText) findViewById(R.id.etPlanEnferContenido);
         guardar = (Button)findViewById(R.id.btnPlanEnferGuardar);

@@ -51,10 +51,12 @@ public class ConsultaMedicaFragment extends Fragment implements ConsultaMedicaMe
             fragment = new RevisionMedicaFragment();
         } else if (type == 3) {
             fragment = new ExamenFisicoFragment();
+        }else if (type ==4) {
+            fragment = new Fragment_diagnostico();
+        }else if (type == 5) {
+            fragment = new Fragment_prescripcion();
         } else if (type == 6) {
             fragment = new PermisoMedicoFragment();
-        }else if (type == 5) {
-            fragment = new PrescripcionFragment();
         } else {
             return;
         }

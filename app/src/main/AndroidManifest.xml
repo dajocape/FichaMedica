@@ -20,11 +20,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.DiagnosticoActivity" />
-        <activity android:name=".activities.DiagnosticoNuevoActivity" />
-
-
-
         <meta-data
             android:name="DATABASE"
             android:value="db_ficha_medica" />

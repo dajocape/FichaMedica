@@ -1,4 +1,4 @@
-package ec.edu.espol.ingsoft.fichamedica.activities;
+package ec.edu.espol.ingsoft.fichamedica;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +9,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.DiagnosticoEnfermeria;
 
-public class EnfermeriaDiagnosticoActivity extends AppCompatActivity {
+public class Fragment_enfermeriaDiagnostico extends AppCompatActivity {
 
     EditText contenido;
     Button guardar;
@@ -21,7 +20,7 @@ public class EnfermeriaDiagnosticoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enfermeria_diagnostico);
+        setContentView(R.layout.fragment_enfermeria_diagnostico);
 
         contenido = (EditText) findViewById(R.id.etDiagEnferContenido);
         guardar = (Button)findViewById(R.id.btnDiagEnferGuardar);
