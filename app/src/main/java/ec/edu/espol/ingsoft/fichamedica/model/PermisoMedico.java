@@ -10,85 +10,71 @@ import java.util.Date;
  */
 
 public class PermisoMedico extends SugarRecord {
+    String fechaInicio;
+    String fechaFin;
+    String enfermedadNombre;
+    String enfermedadCodigo;
+    String observacion;
+    int dias;
 
-    @Unique
-    Empleado empleado;
+    public PermisoMedico(){
 
-    @Unique
-    Enfermedad enfermedad;
-
-    String emitido_por;
-    Date fecha_inicio;
-    Date fecha_fin;
-    int dias_permiso;
-    String diagnostico;
-
-    public PermisoMedico() {
     }
 
-    public PermisoMedico(Empleado empleado, Enfermedad enfermedad, String emitido_por, Date fecha_inicio, Date fecha_fin, int dias_permiso, String diagnostico) {
-        this.empleado = empleado;
-        this.enfermedad = enfermedad;
-        this.emitido_por = emitido_por;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
-        this.dias_permiso = dias_permiso;
-        this.diagnostico = diagnostico;
+    public PermisoMedico(String fechaInicio, String fechaFin, String enfermedadNombre, String enfermedadCodigo, String observacion, int dias){
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.enfermedadNombre = enfermedadNombre;
+        this.enfermedadCodigo = enfermedadCodigo;
+        this.observacion = observacion;
+        this.dias = dias;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public String getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Enfermedad getEnfermedad() {
-        return enfermedad;
+    public String getFechaFin() {
+        return fechaFin;
     }
 
-    public void setEnfermedad(Enfermedad enfermedad) {
-        this.enfermedad = enfermedad;
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
-    public String getEmitido_por() {
-        return emitido_por;
+    public String getEnfermedadNombre() {
+        return enfermedadNombre;
     }
 
-    public void setEmitido_por(String emitido_por) {
-        this.emitido_por = emitido_por;
+    public void setEnfermedadNombre(String enfermedadNombre) {
+        this.enfermedadNombre = enfermedadNombre;
     }
 
-    public Date getFecha_inicio() {
-        return fecha_inicio;
+    public String getEnfermedadCodigo() {
+        return enfermedadCodigo;
     }
 
-    public void setFecha_inicio(Date fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
+    public void setEnfermedadCodigo(String enfermedadCodigo) {
+        this.enfermedadCodigo = enfermedadCodigo;
     }
 
-    public Date getFecha_fin() {
-        return fecha_fin;
+    public String getObservacion() {
+        return observacion;
     }
 
-    public void setFecha_fin(Date fecha_fin) {
-        this.fecha_fin = fecha_fin;
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
-    public int getDias_permiso() {
-        return dias_permiso;
+    public int getDias() {
+        return dias;
     }
 
-    public void setDias_permiso(int dias_permiso) {
-        this.dias_permiso = dias_permiso;
-    }
-
-    public String getDiagnostico() {
-        return diagnostico;
-    }
-
-    public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
+    public void setDias(int dias) {
+        this.dias = dias;
     }
 }
