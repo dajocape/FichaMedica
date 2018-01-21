@@ -1,110 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.Fragment_diagnosticoNuevo">
+    android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8sp">
 
-            <ListView
-                android:id="@+id/lista"
-                android:layout_width="0dp"
-                android:layout_height="241dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search" />
+        <TextView
+            android:id="@+id/textViewSignos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8EAAFC"
+            android:padding="10sp"
+            android:text="Diagnostico - Nuevo"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/btnRegistrarDiagnostico"
+        <TextView
+            android:id="@+id/textViewPresion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:background="#8EAAFC"
+            android:paddingLeft="10sp"
+            android:text="Enfermedad"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/search"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:focusedByDefault="false"
+            android:hint="Ingrese una Enfermedad"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="241dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:background="#8EAAFC"
+            android:paddingLeft="10sp"
+            android:text="Tipo de enfermedad"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <RadioButton
+                android:id="@+id/rbPres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Guardar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+                android:layout_weight="1"
+                android:paddingRight="8sp"
+                android:text="PRESUNTORIA" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="360dp"
-                android:layout_height="54dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="Tipo de Enfermedad"
-                android:textSize="30sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lista" />
-
-            <AutoCompleteTextView
-                android:id="@+id/search"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:defaultFocusHighlightEnabled="false"
-                android:focusedByDefault="false"
-                android:text="Ingrese una Enfermedad"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="222dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Enfermedad"
-                android:textSize="30sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup"
+            <RadioButton
+                android:id="@+id/rbDef"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
+                android:layout_weight="1"
+                android:paddingRight="8sp"
+                android:text="DEFINITORIA" />
+        </RadioGroup>
 
-                <RadioButton
-                    android:id="@+id/rbPres"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="PRES" />
+        <Button
+            android:id="@+id/btnRegistrarDiagnostico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:text="Guardar" />
 
-                <RadioButton
-                    android:id="@+id/rbDef"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="DEF" />
-            </RadioGroup>
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

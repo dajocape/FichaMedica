@@ -52,8 +52,6 @@ public class Fragment_diagnosticoNuevo extends Fragment {
 
         visualizadorLista = (ListView) view.findViewById(R.id.lista);
 
-        View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row_enfermedad,null);
-        visualizadorLista.addHeaderView(header);
         visualizadorLista.setAdapter(adapter);
 
         buscador = (AutoCompleteTextView) view.findViewById(R.id.search);
@@ -63,10 +61,13 @@ public class Fragment_diagnosticoNuevo extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 TextView name =(TextView)view.findViewById(R.id.tvNombre);//Esto se saca del activity item row Enfermedad
                 TextView code =(TextView)view.findViewById(R.id.tvCodigo);//Esto se saca del activity item row Enfermedad
-                buscador.setText(name.getText());
 
-                enfermedad = name.getText().toString();
-                codigo = code.getText().toString();
+                if(name!=null & code!=null){
+                    buscador.setText(name.getText());
+                    enfermedad = name.getText().toString();
+                    codigo = code.getText().toString();
+                }
+
             }
         });
 
