@@ -33,6 +33,7 @@
                 android:textSize="16sp"
                 android:drawableStart="@mipmap/ic_calendario"
                 android:clickable="true"
+                android:enabled="false"
                 android:focusable="false"
                 android:hint="Desde"
                 android:inputType="date" />
@@ -45,9 +46,16 @@
                 android:textSize="16sp"
                 android:drawableStart="@mipmap/ic_calendario"
                 android:clickable="true"
+                android:enabled="false"
                 android:focusable="false"
                 android:hint="Hasta"
                 android:inputType="date" />
+
+            <AutoCompleteTextView
+                android:id="@+id/ac_nombre_cie10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false" />
 
             <TextView
                 android:id="@+id/observacion"
