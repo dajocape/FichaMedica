@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8sp">
+
+        <TextView
+            android:id="@+id/txtv_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8EAAFC"
+            android:padding="10sp"
+            android:text="Plan de cuidados de enfermería"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txt_plan_cuidados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="No refiere un plan de cuidados"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Guardar"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>

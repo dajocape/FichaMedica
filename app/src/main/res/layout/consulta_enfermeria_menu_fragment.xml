@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_signos_vitales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signos Vitales" />
+
+        <Button
+            android:id="@+id/btn_motivo_consulta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Motivo Consulta" />
+
+        <Button
+            android:id="@+id/btn_diagnostico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Diagnostico" />
+
+        <Button
+            android:id="@+id/btn_plan_cuidados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plan de Cuidados" />
+
+    </LinearLayout>
+
+</ScrollView>

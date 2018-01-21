@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_enfermeria.ConsultaEnfermeriaTabFragment;
 import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.ficha_medica.FichaMedicaTabFragment;
 import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.permisos_medicos.PermisosMedicosTabFragment;
 import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.reporte_medico.ReporteMedicoTabFragment;
@@ -43,6 +44,7 @@ public class HistoriaMedicaActivity extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new FichaMedicaTabFragment(), "Ficha Medica");
         adapter.addFragment(new ConsultaMedicaTabFragment(), "Consulta Medica");
+        adapter.addFragment(new ConsultaEnfermeriaTabFragment(), "Consulta Enfermeria");
         adapter.addFragment(new PermisosMedicosTabFragment(), "Permisos Medicos");
         adapter.addFragment(new ReporteMedicoTabFragment(), "Reporte Medico");
         adapter.addFragment(new TempVerSignosVitalesTabFragment(), "Ver Signos Vitales");
