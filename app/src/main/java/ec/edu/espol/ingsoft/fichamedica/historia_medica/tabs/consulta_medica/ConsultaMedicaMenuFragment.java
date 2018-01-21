@@ -23,6 +23,7 @@ public class ConsultaMedicaMenuFragment extends Fragment {
     private Button btn_diagnostico;
     private Button btn_prescripcion;
     private Button btn_permisos;
+    private Button btn_subir_archivo;
 
     OnItemSelectedListener mCallback;
 
@@ -54,7 +55,8 @@ public class ConsultaMedicaMenuFragment extends Fragment {
         btn_examen_fisico = view.findViewById(R.id.btn_examen_fisico);
         btn_diagnostico = view.findViewById(R.id.btn_diagnostico);
         btn_prescripcion = view.findViewById(R.id.btn_prescripcion);
-        btn_permisos = view.findViewById(R.id.btn_permisos);
+        btn_permisos = view.findViewById(R.id.btn_permiso);
+        btn_subir_archivo = view.findViewById(R.id.btn_subir_archivo);
 
         btn_signos_vitales.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -98,7 +100,12 @@ public class ConsultaMedicaMenuFragment extends Fragment {
             }
         });
 
-
+        btn_subir_archivo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                mCallback.onItemSelected(7);
+            }
+        });
         return view;
     }
 
