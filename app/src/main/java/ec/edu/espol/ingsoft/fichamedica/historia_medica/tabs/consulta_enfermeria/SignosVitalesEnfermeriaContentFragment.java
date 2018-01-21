@@ -13,7 +13,8 @@ import ec.edu.espol.ingsoft.fichamedica.R;
 
 public class SignosVitalesEnfermeriaContentFragment extends Fragment {
 
-    private static final String TAG = "SignosVitalesContentFragment";
+    private static final String TAG = "SignosVitalesEnfermeriaContentFragment";
+
     EditText txtPresionArterial,
             txtPulsoPorMinuto,
             txtTemperatura;
