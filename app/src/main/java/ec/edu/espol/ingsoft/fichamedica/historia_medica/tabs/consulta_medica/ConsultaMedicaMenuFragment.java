@@ -55,7 +55,7 @@ public class ConsultaMedicaMenuFragment extends Fragment {
         btn_examen_fisico = view.findViewById(R.id.btn_examen_fisico);
         btn_diagnostico = view.findViewById(R.id.btn_diagnostico);
         btn_prescripcion = view.findViewById(R.id.btn_prescripcion);
-        btn_permisos = view.findViewById(R.id.btn_permiso);
+        btn_permisos = view.findViewById(R.id.btn_permisos);
         btn_subir_archivo = view.findViewById(R.id.btn_subir_archivo);
 
         btn_signos_vitales.setOnClickListener(new View.OnClickListener(){

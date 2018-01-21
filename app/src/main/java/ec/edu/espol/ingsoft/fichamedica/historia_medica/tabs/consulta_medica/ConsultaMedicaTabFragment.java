@@ -87,4 +87,11 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
         inicializado = false;
         super.onStop();
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
 }
