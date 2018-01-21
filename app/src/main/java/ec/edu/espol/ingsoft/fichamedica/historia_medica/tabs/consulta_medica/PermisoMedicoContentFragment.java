@@ -27,8 +27,7 @@ public class PermisoMedicoContentFragment extends Fragment {
     Switch switch_generar;
     Calendar calendar;
     EditText txtFechaDesde, txtFechaHasta;
-    AutoCompleteTextView acNombreCie10;
-    //Spinner spNombreCie10;
+    AutoCompleteTextView acNombreCie10, acCodigoCie10;
     int dia, mes, anio;
     //ArrayList<Enfermedad> enfermedadesList;
 
@@ -36,20 +35,19 @@ public class PermisoMedicoContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.permiso_medico_content_fragment, container, false);
-
         calendar= Calendar.getInstance();
         //enfermedadesList = (ArrayList<Enfermedad>) Enfermedad.listAll(Enfermedad.class);
-        String[] nombresCie10 = {"Cáncer","Gripe","Viruela","Sarampión","Dengue"};
-        //spNombreCie10 = view.findViewById(R.id.sp_nombre_cie10);
+        String[] nombresCie10 = {"Tifus", "Fiebre amarilla", "Varicela", "Tumor maligno del labio",
+                "Enfermedad de Hodgkin", "Tumor benigno del tejido blando del peritoneo y del retroperitoneo",
+                "Anemia debida a trastornos enzimáticos", "Inmunodeficiencia variable común", "Diabetes mellitus insulinodependiente",
+                "Esquizofrenia"};
+        String[] codigosCie10 = {"A75", "A95", "B01", "C00", "C81", "D20", "D55", "D83", "E10", "F20"};
 
         switch_generar = view.findViewById(R.id.switchGenerarPermiso);
         txtFechaDesde = view.findViewById(R.id.txt_fecha_desde);
         txtFechaHasta = view.findViewById(R.id.txt_fecha_hasta);
-        acNombreCie10=view.findViewById(R.id.ac_nombre_cie10);
-
-        dia=calendar.get(Calendar.DAY_OF_MONTH);
-        mes=calendar.get(Calendar.MONTH);
-        anio=calendar.get(Calendar.YEAR);
+        acNombreCie10 = view.findViewById(R.id.ac_nombre_cie10);
+        acCodigoCie10 = view.findViewById(R.id.ac_codigo_cie10);
 
         switch_generar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -57,23 +55,21 @@ public class PermisoMedicoContentFragment extends Fragment {
                     txtFechaDesde.setEnabled(true);
                     txtFechaHasta.setEnabled(true);
                     acNombreCie10.setEnabled(true);
-                }
-                else{
+                    acCodigoCie10.setEnabled(true);
+                } else {
                     txtFechaDesde.setEnabled(false);
                     txtFechaHasta.setEnabled(false);
                     acNombreCie10.setEnabled(false);
+                    acCodigoCie10.setEnabled(false);
                 }
-//                if (switch_generar.isChecked()) text_permiso_medico.setEnabled(true);
-//                else text_permiso_medico.setEnabled(false);
             }
         });
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, nombresCie10);
-        AutoCompleteTextView textView = (AutoCompleteTextView) acNombreCie10;
-        textView.setAdapter(adapter);
+        dia = calendar.get(Calendar.DAY_OF_MONTH);
+        mes = calendar.get(Calendar.MONTH);
+        anio = calendar.get(Calendar.YEAR);
 
-        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //spNombreCie10.setAdapter(adapter);
+        inicializarAutocompletado(nombresCie10, codigosCie10);
 
         txtFechaDesde.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +85,18 @@ public class PermisoMedicoContentFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void inicializarAutocompletado(String [] nombresCie10, String[] codigosCie10){
+        ArrayAdapter<String> adaptador;
+
+        adaptador = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, nombresCie10);
+        AutoCompleteTextView tv_nombre_cie10 = acNombreCie10;
+        tv_nombre_cie10.setAdapter(adaptador);
+
+        adaptador = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, codigosCie10);
+        AutoCompleteTextView tv_codigo_cie10 = acCodigoCie10;
+        tv_codigo_cie10.setAdapter(adaptador);
     }
 
     public void DateDialogInicio() {

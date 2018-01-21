@@ -55,6 +55,18 @@
                 android:id="@+id/ac_nombre_cie10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Enfermedad"
+                android:dropDownHeight="wrap_content"
+                android:completionThreshold="1"
+                android:enabled="false" />
+
+            <AutoCompleteTextView
+                android:id="@+id/ac_codigo_cie10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Código CIE10"
+                android:dropDownHeight="wrap_content"
+                android:completionThreshold="1"
                 android:enabled="false" />
 
             <TextView
