@@ -22,6 +22,7 @@ public class DiagnosticoEnfermeriaContentFragment extends Fragment {
 
     EditText txt_diagnostico;
     Button btn_guardar;
+    List<DiagnosticoEnfermeria> diagnosticoEnfermeria;
 
     @Nullable
     @Override
@@ -31,6 +32,41 @@ public class DiagnosticoEnfermeriaContentFragment extends Fragment {
         txt_diagnostico = view.findViewById(R.id.txt_diagnostico);
         btn_guardar = view.findViewById(R.id.btn_guardar);
 
+        readDiagnosticoEnfermeria();
+
+        btn_guardar.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 writeDiagnosticoEnfermeria();
+             }
+        });
+
         return view;
+    }
+
+    public void readDiagnosticoEnfermeria(){
+        diagnosticoEnfermeria = DiagnosticoEnfermeria.listAll(DiagnosticoEnfermeria.class);
+
+        if(!diagnosticoEnfermeria.isEmpty()) {
+            txt_diagnostico.setText(diagnosticoEnfermeria.get(diagnosticoEnfermeria.size()-1).getContenido());
+        }
+    }
+
+    public void writeDiagnosticoEnfermeria(){
+        DiagnosticoEnfermeria nuevo_diagnostico = new DiagnosticoEnfermeria();
+
+        String texto = txt_diagnostico.getText().toString();
+
+        if(!texto.isEmpty()){
+            nuevo_diagnostico.setContenido(texto);
+            try{
+                nuevo_diagnostico.save();
+                Toast.makeText(getContext(),"Diagnostico Guardado",Toast.LENGTH_SHORT).show();
+            }catch(Exception e){
+                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        }else{
+            Toast.makeText(getContext(),"No se ha escrito nada",Toast.LENGTH_LONG).show();
+        }
     }
 }

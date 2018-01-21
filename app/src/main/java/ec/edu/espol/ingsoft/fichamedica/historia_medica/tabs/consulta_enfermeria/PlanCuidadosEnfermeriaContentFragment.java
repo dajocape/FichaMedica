@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -58,11 +59,12 @@ public class PlanCuidadosEnfermeriaContentFragment extends Fragment {
             nuevo_planCuidadosEnfermeria.setContenido(texto);
             try{
                 nuevo_planCuidadosEnfermeria.save();
+                Toast.makeText(getContext(),"Plan Guardado",Toast.LENGTH_SHORT).show();
             }catch(Exception e){
-                //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
             }
         }else{
-            //Toast.makeText(getApplicationContext(),"No se guardo nada porque no se escribio nada",Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),"No se guardo nada porque no se escribio nada",Toast.LENGTH_LONG).show();
         }
     }
 }
