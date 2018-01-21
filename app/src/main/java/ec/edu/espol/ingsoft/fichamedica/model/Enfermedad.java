@@ -10,13 +10,15 @@ public class Enfermedad extends SugarRecord{
 
     String nombre;
     String codigo;
+    String grupo;
 
     public Enfermedad() {
     }
 
-    public Enfermedad(String codigo, String nombre) {
+    public Enfermedad(String codigo, String nombre, String grupo) {
         this.codigo = codigo;
         this.nombre = nombre;
+        this.grupo = grupo;
     }
 
     public String getCodigo() {
@@ -33,5 +35,13 @@ public class Enfermedad extends SugarRecord{
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 }
