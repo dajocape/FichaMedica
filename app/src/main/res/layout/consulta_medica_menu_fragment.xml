@@ -42,13 +42,25 @@
             android:id="@+id/btn_permisos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Permisos" />
+            android:text="Permiso Medico" />
 
         <Button
             android:id="@+id/btn_subir_archivo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Subir archivo" />
+            android:text="Anexar Examenes e Imagenologia" />
+
+        <Button
+            android:id="@+id/btn_antecedentes_patologicos_personales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Antecedentes Patologicos Personales" />
+
+        <Button
+            android:id="@+id/btn_antecedentes_patologicos_familiares"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Antecedentes Patologicos Familiares "/>
 
     </LinearLayout>
 </ScrollView>

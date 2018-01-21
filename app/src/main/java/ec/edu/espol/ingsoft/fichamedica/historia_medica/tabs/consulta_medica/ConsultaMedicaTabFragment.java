@@ -65,6 +65,10 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
             fragment = new PermisoMedicoContentFragment();
         } else if (type == 7) {
             fragment = new AnexarContentFragment();
+        } else if (type == 8) {
+            fragment = new AntecedentesPatologicosPersonalesFragment();
+        } else if (type == 9) {
+            fragment = new AntecedentesPatologicosFamiliaresFragment();
         } else {
             return;
         }
