@@ -9,37 +9,36 @@ import com.orm.dsl.Unique;
 
 public class ConsultaEnfermeria extends SugarRecord {
 
-    @Unique
-    Empleado empleado;
+    //@Unique
+    //Empleado empleado;
 
-    String motivo;
+    String motivo_atencion;
     String diagnostico_enfermeria;
     String plan_cuidados;
 
     public ConsultaEnfermeria() {
     }
 
-    public ConsultaEnfermeria(Empleado empleado, String motivo, String diagnostico_enfermeria, String plan_cuidados) {
-        this.empleado = empleado;
-        this.motivo = motivo;
+    public ConsultaEnfermeria(String motivo_atencion) {
+        //this.empleado = empleado;
+        this.motivo_atencion = motivo_atencion;
+        //this.diagnostico_enfermeria = diagnostico_enfermeria;
+        //this.plan_cuidados = plan_cuidados;
+    }
+
+    public ConsultaEnfermeria(String motivo_atencion,String diagnostico_enfermeria, String plan_cuidados) {
+        //this.empleado = empleado;
+        this.motivo_atencion = motivo_atencion;
         this.diagnostico_enfermeria = diagnostico_enfermeria;
         this.plan_cuidados = plan_cuidados;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public String getMotivo_atencion() {
+        return motivo_atencion;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
-
-    public String getMotivo() {
-        return motivo;
-    }
-
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+    public void setMotivo_atencion(String motivo_atencion) {
+        this.motivo_atencion = motivo_atencion;
     }
 
     public String getDiagnostico_enfermeria() {

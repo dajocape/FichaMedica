@@ -8,13 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
+import ec.edu.espol.ingsoft.fichamedica.model.ConsultaEnfermeria;
 
 public class MotivoConsultaEnfermeriaContentFragment extends Fragment {
 
-    private static final String TAG = "SignosVitalesContentFragment";
-    EditText txt_motivo;
+    private static final String TAG = "MotivoConsultaEnfermeriaContentFragment";
+    EditText txt_motivo_atencion;
     Button btn_guardar;
 
     @Nullable
@@ -22,23 +24,22 @@ public class MotivoConsultaEnfermeriaContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.motivo_consulta_enfermeria_content_fragment, container, false);
 
-        txt_motivo = view.findViewById(R.id.txt_motivo);
-        btn_guardar = view.findViewById(R.id.btn_guardar);
+        txt_motivo_atencion = (EditText) view.findViewById(R.id.txt_motivo_atencion);
+        btn_guardar = (Button) view.findViewById(R.id.btn_guardar);
 
-//        btnGuardar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SignosVitales signosVitalesPaciente = new SignosVitales();
-//
-//                signosVitalesPaciente.setPresion_arterial(Integer.parseInt(txtPresionArterial.getText().toString()));
-//                signosVitalesPaciente.setFrecuencia_cardiaca(Integer.parseInt(txtPulsoPorMinuto.getText().toString()));
-//                signosVitalesPaciente.setTemperatura(Integer.parseInt(txtTemperatura.getText().toString()));
-//
-//                signosVitalesPaciente.save();
-//
-//                Toast.makeText(getContext(), "Signos Vitales Guardados exitosamente", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        btn_guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConsultaEnfermeria consultaEnfermeria = new ConsultaEnfermeria();
+                consultaEnfermeria.setMotivo_atencion(txt_motivo_atencion.getText().toString());
+
+                consultaEnfermeria.save();
+
+                Toast.makeText(getContext(), "Motivo de Atencion guardado exitoso",Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 }
+
+

@@ -15,16 +15,16 @@
             android:layout_height="wrap_content"
             android:background="#8EAAFC"
             android:padding="10sp"
-            android:text="Motivo de la consulta"
+            android:text="Motivo de Atencion"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/txt_motivo"
+            android:id="@+id/txt_motivo_atencion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="No refiere motivo de la consulta"
+            android:hint="No refiere motivo de atencion"
             android:inputType="textMultiLine" />
 
         <ImageView
