@@ -3,7 +3,6 @@ package ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,9 +21,9 @@ import ec.edu.espol.ingsoft.fichamedica.adapter.EnfermedadesAdapter;
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.Enfermedad;
 
-public class Fragment_diagnosticoNuevo extends Fragment {
+public class DiagnosticoNuevoContentFragment extends Fragment {
 
-    private static final String TAG = "Fragment_diagnosticoNuevo";
+    private static final String TAG = "DiagnosticoNuevoContentFragment";
 
     ListView visualizadorLista;
     AutoCompleteTextView buscador;
@@ -40,7 +38,7 @@ public class Fragment_diagnosticoNuevo extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_diagnostico_nuevo, container, false);
+        View view = inflater.inflate(R.layout.diagnostico_nuevo_fragment, container, false);
 
         pres = (RadioButton)view.findViewById(R.id.rbPres);
         def  = (RadioButton)view.findViewById(R.id.rbDef);
@@ -80,7 +78,7 @@ public class Fragment_diagnosticoNuevo extends Fragment {
     }
 
     public void irDiagnostico(View view) {
-        Intent intent = new Intent(view.getContext(), Fragment_diagnostico.class); //Esto da error
+        Intent intent = new Intent(view.getContext(), DiagnosticoContentFragment.class); //Esto da error
         startActivity(intent);
 
     }

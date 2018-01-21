@@ -15,9 +15,9 @@ import ec.edu.espol.ingsoft.fichamedica.adapter.DiagnosticosAdapter;
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.Diagnostico;
 
-public class Fragment_diagnostico extends Fragment {
+public class DiagnosticoContentFragment extends Fragment {
 
-    private static final String TAG = "Fragment_diagnostico";
+    private static final String TAG = "DiagnosticoContentFragment";
 
     ListView visualizadorLista;
     ArrayList<Diagnostico> diagnosticosList;
@@ -26,7 +26,7 @@ public class Fragment_diagnostico extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_diagnostico, container, false);
+        View view = inflater.inflate(R.layout.diagnostico_fragment, container, false);
 
         llenarListaDiagnosticos();
 
@@ -40,7 +40,7 @@ public class Fragment_diagnostico extends Fragment {
             @Override
             public void onClick(View view) {
                 // Crea el nuevo fragmento y la transacción.
-                Fragment nuevoFragmento = new Fragment_diagnosticoNuevo();
+                Fragment nuevoFragmento = new DiagnosticoNuevoContentFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.content_container, nuevoFragmento);
                 transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);

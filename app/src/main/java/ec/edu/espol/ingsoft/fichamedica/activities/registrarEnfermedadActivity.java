@@ -10,8 +10,8 @@ import android.widget.EditText;
 import com.orm.SugarRecord;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.Fragment_diagnostico;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.Fragment_diagnosticoNuevo;
+import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.DiagnosticoContentFragment;
+import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.DiagnosticoNuevoContentFragment;
 import ec.edu.espol.ingsoft.fichamedica.model.Enfermedad;
 
 public class registrarEnfermedadActivity extends AppCompatActivity {
@@ -64,12 +64,12 @@ public class registrarEnfermedadActivity extends AppCompatActivity {
     }
 
     public void irDiagnosticoNuevo(View view) {
-        Intent intent = new Intent(this, Fragment_diagnosticoNuevo.class);
+        Intent intent = new Intent(this, DiagnosticoNuevoContentFragment.class);
         startActivity(intent);
     }
 
     public void irDiagnostico(View view) {
-        Intent intent = new Intent(this, Fragment_diagnostico.class);
+        Intent intent = new Intent(this, DiagnosticoContentFragment.class);
         startActivity(intent);
     }
 }

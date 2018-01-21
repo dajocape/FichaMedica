@@ -1,27 +1,17 @@
 package ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.temp_ver_signosvitales;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.List;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.ConsultaMedicaMenuFragment;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.ExamenFisicoContentFragment;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.Fragment_diagnostico;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.PermisoMedicoContentFragment;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.PrescripcionContentFragment;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.RevisionMedicaContentFragment;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.SignosVitalesContentFragment;
 import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
 public class TempVerSignosVitalesTabFragment extends Fragment {
