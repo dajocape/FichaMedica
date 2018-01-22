@@ -18,13 +18,13 @@
             android:id="@+id/btn_motivo_consulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Motivo Consulta" />
+            android:text="Motivo de Atencion" />
 
         <Button
             android:id="@+id/btn_diagnostico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Diagnostico" />
+            android:text="Diagnostico de Enfermeria" />
 
         <Button
             android:id="@+id/btn_plan_cuidados"
