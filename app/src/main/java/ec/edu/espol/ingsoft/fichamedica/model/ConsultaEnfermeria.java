@@ -1,11 +1,6 @@
 package ec.edu.espol.ingsoft.fichamedica.model;
 
 import com.orm.SugarRecord;
-import com.orm.dsl.Unique;
-
-/**
- * TODO Javadoc
- */
 
 public class ConsultaEnfermeria extends SugarRecord {
 
