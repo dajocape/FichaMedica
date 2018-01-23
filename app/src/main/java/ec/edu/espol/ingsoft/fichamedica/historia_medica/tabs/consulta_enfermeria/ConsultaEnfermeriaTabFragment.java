@@ -9,9 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.ExamenFisicoContentFragment;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.Fragment_diagnostico;
-import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.RevisionMedicaContentFragment;
 
 public class ConsultaEnfermeriaTabFragment extends Fragment implements ConsultaEnfermeriaMenuFragment.OnItemSelectedListener {
 
