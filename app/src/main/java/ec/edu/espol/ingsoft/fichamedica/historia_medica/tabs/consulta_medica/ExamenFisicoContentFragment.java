@@ -38,7 +38,6 @@ public class ExamenFisicoContentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ExamenFisico examenFisico = new ExamenFisico();
-
                 examenFisico.setDescripcion(txtDescripcion.getText().toString());
 
                 examenFisico.save();

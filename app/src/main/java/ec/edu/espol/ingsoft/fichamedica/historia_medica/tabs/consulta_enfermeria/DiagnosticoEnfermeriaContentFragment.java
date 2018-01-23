@@ -31,7 +31,6 @@ public class DiagnosticoEnfermeriaContentFragment extends Fragment {
             public void onClick(View v) {
                 ConsultaEnfermeria consultaEnfermeria = new ConsultaEnfermeria();
                 consultaEnfermeria.setDiagnostico_enfermeria(txt_diagnostico.getText().toString());
-
                 consultaEnfermeria.save();
 
                 Toast.makeText(getContext(), "Diagnostico Enfermeria guardado exitoso",Toast.LENGTH_SHORT).show();
