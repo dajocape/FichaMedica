@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/image_placeholder"
+            android:src="@drawable/img_corporal"
             />
 
         <Button

@@ -14,8 +14,8 @@ import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.ConsultaEnfermeria;
 
 public class MotivoConsultaEnfermeriaContentFragment extends Fragment {
-
     private static final String TAG = "MotivoConsultaEnfermeriaContentFragment";
+
     EditText txt_motivo_atencion;
     Button btn_guardar;
 
@@ -30,11 +30,11 @@ public class MotivoConsultaEnfermeriaContentFragment extends Fragment {
         btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 ConsultaEnfermeria consultaEnfermeria = new ConsultaEnfermeria();
                 consultaEnfermeria.setMotivo_atencion(txt_motivo_atencion.getText().toString());
 
                 consultaEnfermeria.save();
-
                 Toast.makeText(getContext(), "Motivo de Atencion guardado exitoso",Toast.LENGTH_SHORT).show();
             }
         });

@@ -33,6 +33,15 @@
                 android:inputType="textMultiLine"
                 android:textSize="16sp" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/img_corporal"
+                />
+
+
             <Button
                 android:id="@+id/button_guardar"
                 android:layout_width="wrap_content"
