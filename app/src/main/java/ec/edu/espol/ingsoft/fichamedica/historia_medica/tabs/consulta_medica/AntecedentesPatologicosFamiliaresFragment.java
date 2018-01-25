@@ -37,10 +37,10 @@ public class AntecedentesPatologicosFamiliaresFragment extends Fragment {
 
     private ArrayList<AntecedentesPatologicosFamiliares> getArrayItems(){
         ArrayList<AntecedentesPatologicosFamiliares> listItems = new ArrayList<>();
-        listItems.add(new AntecedentesPatologicosFamiliares("Padre","Hipertenso"));
-        listItems.add(new AntecedentesPatologicosFamiliares("Madre","Hipertenso"));
-        listItems.add(new AntecedentesPatologicosFamiliares("Abuelo","Cancer"));
-        listItems.add(new AntecedentesPatologicosFamiliares("Abuela","Cancer"));
+        listItems.add(new AntecedentesPatologicosFamiliares("","Padre","Hipertenso"));
+        listItems.add(new AntecedentesPatologicosFamiliares("","Madre","Hipertenso"));
+        listItems.add(new AntecedentesPatologicosFamiliares("","Abuelo","Cancer"));
+        listItems.add(new AntecedentesPatologicosFamiliares("","Abuela","Cancer"));
         return listItems;
     }
 

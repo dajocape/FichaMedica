@@ -7,14 +7,24 @@ import com.orm.SugarRecord;
  */
 
 public class ExamenFisico extends SugarRecord {
+
+    String idEmpleado;
     String descripcion;
 
     public ExamenFisico(){
-
     }
 
-    public ExamenFisico(String descripcion){
+    public ExamenFisico(String idEmpleado, String descripcion) {
+        this.idEmpleado = idEmpleado;
         this.descripcion = descripcion;
+    }
+
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getDescripcion() {

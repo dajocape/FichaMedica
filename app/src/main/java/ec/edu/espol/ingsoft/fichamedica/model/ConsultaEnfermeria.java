@@ -4,9 +4,7 @@ import com.orm.SugarRecord;
 
 public class ConsultaEnfermeria extends SugarRecord {
 
-    //@Unique
-    //Empleado empleado;
-
+    String idEmpleado;
     String motivo_atencion;
     String diagnostico_enfermeria;
     String plan_cuidados;
@@ -21,11 +19,19 @@ public class ConsultaEnfermeria extends SugarRecord {
         //this.plan_cuidados = plan_cuidados;
     }
 
-    public ConsultaEnfermeria(String motivo_atencion,String diagnostico_enfermeria, String plan_cuidados) {
-        //this.empleado = empleado;
+    public ConsultaEnfermeria(String idEmpleado, String motivo_atencion, String diagnostico_enfermeria, String plan_cuidados) {
+        this.idEmpleado = idEmpleado;
         this.motivo_atencion = motivo_atencion;
         this.diagnostico_enfermeria = diagnostico_enfermeria;
         this.plan_cuidados = plan_cuidados;
+    }
+
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getMotivo_atencion() {

@@ -12,6 +12,7 @@ public class SignosVitales extends SugarRecord {
     //@Unique
     // ConsultaEnfermeria consultaEnfermeria;
 
+    String idEmpleado;
     int presion_arterial;
     int frecuencia_cardiaca;
     int frecuencia_respiratoria;
@@ -23,7 +24,8 @@ public class SignosVitales extends SugarRecord {
     public SignosVitales() {
     }
 
-    public SignosVitales(int presion_arterial, int frecuencia_cardiaca, int frecuencia_respiratoria, float talla, float peso, float IMC, int temperatura) {
+    public SignosVitales(String idEmpleado, int presion_arterial, int frecuencia_cardiaca, int frecuencia_respiratoria, float talla, float peso, float IMC, int temperatura) {
+        this.idEmpleado = idEmpleado;
         this.presion_arterial = presion_arterial;
         this.frecuencia_cardiaca = frecuencia_cardiaca;
         this.frecuencia_respiratoria = frecuencia_respiratoria;
@@ -31,6 +33,14 @@ public class SignosVitales extends SugarRecord {
         this.peso = peso;
         this.IMC = IMC;
         this.temperatura = temperatura;
+    }
+
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public int getPresion_arterial() {

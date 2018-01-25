@@ -8,13 +8,23 @@ import com.orm.SugarRecord;
 
 public class DiagnosticoEnfermeria extends SugarRecord {
 
+    String idEmpleado;
     String contenido;
 
     public DiagnosticoEnfermeria() {
     }
 
-    public DiagnosticoEnfermeria(String contenido) {
+    public DiagnosticoEnfermeria(String idEmpleado, String contenido) {
+        this.idEmpleado = idEmpleado;
         this.contenido = contenido;
+    }
+
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getContenido() {

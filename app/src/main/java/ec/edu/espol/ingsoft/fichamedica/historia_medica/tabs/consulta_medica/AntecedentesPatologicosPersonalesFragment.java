@@ -35,8 +35,8 @@ public class AntecedentesPatologicosPersonalesFragment extends android.support.v
 
     private ArrayList<AntecedentesPatologicosPersonales> getArrayItems(){
         ArrayList<AntecedentesPatologicosPersonales> listItems = new ArrayList<>();
-        listItems.add(new AntecedentesPatologicosPersonales("Sistema Nervioso", "El sistema nervioso"));
-        listItems.add(new AntecedentesPatologicosPersonales("Renales", "Calculos Renales en el rinon izquierdo"));
-        listItems.add(new AntecedentesPatologicosPersonales("Musculares", "Distension muscular en ...")); return listItems;
+        listItems.add(new AntecedentesPatologicosPersonales("","Sistema Nervioso", "El sistema nervioso"));
+        listItems.add(new AntecedentesPatologicosPersonales("","Renales", "Calculos Renales en el rinon izquierdo"));
+        listItems.add(new AntecedentesPatologicosPersonales("","Musculares", "Distension muscular en ...")); return listItems;
     }
 }

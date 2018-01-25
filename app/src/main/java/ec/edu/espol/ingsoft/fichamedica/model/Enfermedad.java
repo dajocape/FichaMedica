@@ -12,7 +12,7 @@ public class Enfermedad extends SugarRecord{
     String codigo;
     String grupo;
 
-    public Enfermedad() {
+    public Enfermedad(){
     }
 
     public Enfermedad(String codigo, String nombre, String grupo) {

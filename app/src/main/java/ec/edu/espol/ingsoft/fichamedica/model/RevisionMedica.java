@@ -7,17 +7,26 @@ import com.orm.SugarRecord;
  */
 
 public class RevisionMedica extends SugarRecord{
+
+    String idEmpleado;
     String enfermedad;
     String revision_organos_sistemas;
 
     public RevisionMedica(){
-
     }
 
-    public RevisionMedica(String enfermedad, String revision_organos_sistemas){
-        this.enfermedad=enfermedad;
-        this.revision_organos_sistemas=revision_organos_sistemas;
+    public RevisionMedica(String idEmpleado, String enfermedad, String revision_organos_sistemas) {
+        this.idEmpleado = idEmpleado;
+        this.enfermedad = enfermedad;
+        this.revision_organos_sistemas = revision_organos_sistemas;
+    }
 
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getEnfermedad() {

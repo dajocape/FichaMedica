@@ -10,6 +10,8 @@ import java.util.Date;
  */
 
 public class PermisoMedico extends SugarRecord {
+
+    String idEmpleado;
     String fechaInicio;
     String fechaFin;
     String enfermedadNombre;
@@ -21,13 +23,22 @@ public class PermisoMedico extends SugarRecord {
 
     }
 
-    public PermisoMedico(String fechaInicio, String fechaFin, String enfermedadNombre, String enfermedadCodigo, String observacion, int dias){
+    public PermisoMedico(String idEmpleado, String fechaInicio, String fechaFin, String enfermedadNombre, String enfermedadCodigo, String observacion, int dias) {
+        this.idEmpleado = idEmpleado;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.enfermedadNombre = enfermedadNombre;
         this.enfermedadCodigo = enfermedadCodigo;
         this.observacion = observacion;
         this.dias = dias;
+    }
+
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getFechaInicio() {
