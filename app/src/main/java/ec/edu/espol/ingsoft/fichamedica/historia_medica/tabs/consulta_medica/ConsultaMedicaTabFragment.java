@@ -7,42 +7,32 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
 
 public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedicaMenuFragment.OnItemSelectedListener {
 
     private static final String TAG = "ConsultaMedicaTabFragment";
-
-    private static boolean inicializado = false;
-
+    String idEmpleado;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.consulta_medica_tab_fragment, container, false);
+        idEmpleado = getArguments().getString("idEmpleado");
 
-        if (savedInstanceState == null && !inicializado) {
+        // Create a new Fragment to be placed in the activity layout
+        ConsultaMedicaMenuFragment sidemenuFragment = new ConsultaMedicaMenuFragment();
 
-            // Create a new Fragment to be placed in the activity layout
-            ConsultaMedicaMenuFragment sidemenuFragment = new ConsultaMedicaMenuFragment();
+        // Agregar la primera vista "Signos Vitales" por defecto
+        SignosVitalesContentFragment signosVitalesFragment = new SignosVitalesContentFragment();
 
-            // In case this activity was started with special instructions from an
-            // Intent, pass the Intent's extras to the fragment as arguments
-            // sidemenuFragment.setArguments(getIntent().getExtras());
-
-            // Agregar la primera vista "Signos Vitales" por defecto
-            SignosVitalesContentFragment signosVitalesFragment = new SignosVitalesContentFragment();
-
-            // Agregar el fragmento de contenido al FrameLayout 'content_container'
-            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-            transaction.add(R.id.sidemenu_container, sidemenuFragment);
-            transaction.replace(R.id.content_container, signosVitalesFragment);
-            transaction.commit();
-
-            inicializado = true;
-
-        }
+        // Agregar el fragmento de contenido al FrameLayout 'content_container'
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.sidemenu_container, sidemenuFragment);
+        transaction.replace(R.id.content_container, signosVitalesFragment);
+        transaction.commit();
 
         return view;
     }
@@ -59,6 +49,9 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
             fragment = new ExamenFisicoContentFragment();
         } else if (type == 4) {
             fragment = new DiagnosticoContentFragment();
+            Bundle bun = new Bundle();
+            bun.putString("idEmpleado",idEmpleado);
+            fragment.setArguments(bun);
         } else if (type == 5) {
             fragment = new PrescripcionContentFragment();
         } else if (type == 6) {
@@ -75,12 +68,10 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
 
         if (fragment != null) {
             FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack so the user can navigate back
             transaction.replace(R.id.content_container, fragment);
             transaction.addToBackStack(null);
-
             // Hacer commit a la transacción
             transaction.commit();
         }
@@ -88,7 +79,6 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
 
     @Override
     public void onStop() {
-        inicializado = false;
         super.onStop();
     }
 

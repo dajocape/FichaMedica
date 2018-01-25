@@ -9,6 +9,7 @@ import com.orm.dsl.Unique;
 
 public class Diagnostico extends SugarRecord {
 
+    String idEmpleado;
     String enfermedad;
     String codigo;
     String tipoEnfermedad;
@@ -16,10 +17,19 @@ public class Diagnostico extends SugarRecord {
     public Diagnostico() {
     }
 
-    public Diagnostico(String enfermedad, String codigo, String tipoEnfermedad) {
+    public Diagnostico(String idEmpleado, String enfermedad, String codigo, String tipoEnfermedad) {
+        this.idEmpleado = idEmpleado;
         this.enfermedad = enfermedad;
         this.codigo = codigo;
         this.tipoEnfermedad = tipoEnfermedad;
+    }
+
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getEnfermedad() {

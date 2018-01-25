@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,7 @@ public class DiagnosticoNuevoContentFragment extends Fragment {
 
     private static final String TAG = "DiagnosticoNuevoContentFragment";
 
+    String idEmpleado;
     ListView visualizadorLista;
     AutoCompleteTextView buscador;
     RadioButton pres,def;
@@ -39,6 +41,9 @@ public class DiagnosticoNuevoContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.diagnostico_nuevo_fragment, container, false);
+        idEmpleado = getArguments().getString("idEmpleado");
+
+        Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         pres = (RadioButton)view.findViewById(R.id.rbPres);
         def  = (RadioButton)view.findViewById(R.id.rbDef);
@@ -91,21 +96,22 @@ public class DiagnosticoNuevoContentFragment extends Fragment {
             tipoEnfermedad = def.getText().toString();
             writeDiagnostico();
         }else{
-            //Toast.makeText(getApplicationContext(),"Debe seleccionar un tipo de Enfermedad",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Debe seleccionar un tipo de Enfermedad",Toast.LENGTH_SHORT).show();
         }
     }
 
     private void writeDiagnostico(){
         Diagnostico nuevo_diagnostico = new Diagnostico();
+        nuevo_diagnostico.setIdEmpleado(idEmpleado);
         nuevo_diagnostico.setEnfermedad(enfermedad);
         nuevo_diagnostico.setCodigo(codigo);
         nuevo_diagnostico.setTipoEnfermedad(tipoEnfermedad);
 
         try{
             nuevo_diagnostico.save();
-            //Toast.makeText(getApplicationContext(),"Diagnostico Guardado",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Diagnostico Guardado",Toast.LENGTH_SHORT).show();
         }catch (Exception e){
-            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
     }
 
