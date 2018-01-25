@@ -4,21 +4,22 @@ import com.orm.SugarRecord;
 import com.orm.dsl.Unique;
 
 /**
- * Created by jorge on 18/1/2018.
+ * Created by jorge on 25/1/2018.
  */
 
-public class DiagnosticoEnfermeria extends SugarRecord {
-
+public class MotivoConsultaEnfermeria extends SugarRecord {
     @Unique
-    String idEmpleado;
-    String contenido;
+    private String idEmpleado;
+    private String contenido;
+    private String rutaImagen;
 
-    public DiagnosticoEnfermeria() {
+    public MotivoConsultaEnfermeria() {
     }
 
-    public DiagnosticoEnfermeria(String idEmpleado, String contenido) {
+    public MotivoConsultaEnfermeria(String idEmpleado, String contenido, String rutaImagen) {
         this.idEmpleado = idEmpleado;
         this.contenido = contenido;
+        this.rutaImagen = rutaImagen;
     }
 
     public String getIdEmpleado() {
@@ -35,5 +36,13 @@ public class DiagnosticoEnfermeria extends SugarRecord {
 
     public void setContenido(String contenido) {
         this.contenido = contenido;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 }

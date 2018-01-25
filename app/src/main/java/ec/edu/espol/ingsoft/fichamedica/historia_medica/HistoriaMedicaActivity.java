@@ -25,6 +25,7 @@ import ec.edu.espol.ingsoft.fichamedica.historia_medica.tabs.consulta_medica.Con
 public class HistoriaMedicaActivity extends AppCompatActivity {
 
     public Empleado empleado;
+    Bundle bun;
 
     private static final String TAG = "HistoriaMedicaActivity";
 
@@ -44,6 +45,9 @@ public class HistoriaMedicaActivity extends AppCompatActivity {
 
         crearEmpleado("0987456321");
         empleado = buscarEmpleado("0987456321");
+
+        bun = new Bundle();
+        bun.putString("idEmpleado",empleado.getCedula());
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
@@ -88,18 +92,29 @@ public class HistoriaMedicaActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager){
-        ConsultaMedicaTabFragment consulta = new ConsultaMedicaTabFragment();
-        Bundle bun = new Bundle();
-        bun.putString("idEmpleado",empleado.getCedula());
-        consulta.setArguments(bun);
+        FichaMedicaTabFragment fichaMedica = new FichaMedicaTabFragment();
+        fichaMedica.setArguments(bun);
+
+        ConsultaMedicaTabFragment consultaMedica = new ConsultaMedicaTabFragment();
+        consultaMedica.setArguments(bun);
+
+        ConsultaEnfermeriaTabFragment consultaEnfermeria = new ConsultaEnfermeriaTabFragment();
+        consultaEnfermeria.setArguments(bun);
+
+        PermisosMedicosTabFragment permisosMedicos = new PermisosMedicosTabFragment();
+        permisosMedicos.setArguments(bun);
+
+        ReporteMedicoTabFragment reporteMedico = new ReporteMedicoTabFragment();
+        reporteMedico.setArguments(bun);
+
 
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FichaMedicaTabFragment(), "Ficha Medica");
-        adapter.addFragment(consulta, "Consulta Medica");
-        adapter.addFragment(new ConsultaEnfermeriaTabFragment(), "Consulta Enfermeria");
-        adapter.addFragment(new PermisosMedicosTabFragment(), "Permisos Medicos");
-        adapter.addFragment(new ReporteMedicoTabFragment(), "Reporte Medico");
-        adapter.addFragment(new TempVerSignosVitalesTabFragment(), "Ver Signos Vitales");
+        adapter.addFragment(fichaMedica, "Ficha Medica");
+        adapter.addFragment(consultaMedica, "Consulta Medica");
+        adapter.addFragment(consultaEnfermeria, "Consulta Enfermeria");
+        adapter.addFragment(permisosMedicos, "Permisos Medicos");
+        adapter.addFragment(reporteMedico, "Reporte Medico");
+        //adapter.addFragment(new TempVerSignosVitalesTabFragment(), "Ver Signos Vitales");
         viewPager.setAdapter(adapter);
     }
 }

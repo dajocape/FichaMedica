@@ -13,21 +13,21 @@ import android.widget.Toast;
 import java.util.List;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
+import ec.edu.espol.ingsoft.fichamedica.model.ConsultaEnfermeria;
 import ec.edu.espol.ingsoft.fichamedica.model.PlanCuidadosEnfermeria;
-import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
 public class PlanCuidadosEnfermeriaContentFragment extends Fragment {
-
+    String idEmpleado;
     private static final String TAG = "SignosVitalesContentFragment";
     EditText txt_plan_cuidados;
     Button btn_guardar;
-    List<PlanCuidadosEnfermeria> planCuidadosEnfermeria;
+    List<PlanCuidadosEnfermeria> planCuidadosEnfermeriaList;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.plan_de_cuidados_enfermeria_content_fragment, container, false);
-
+        idEmpleado = getArguments().getString("idEmpleado");
         txt_plan_cuidados= view.findViewById(R.id.txt_plan_cuidados);
         btn_guardar =     view.findViewById(R.id.btn_guardar);
 
@@ -44,27 +44,24 @@ public class PlanCuidadosEnfermeriaContentFragment extends Fragment {
     }
 
     public void readPlanCuidadosEnfermeria(){
-        planCuidadosEnfermeria = PlanCuidadosEnfermeria.listAll(PlanCuidadosEnfermeria.class);
-        if(!planCuidadosEnfermeria.isEmpty()) {
-            txt_plan_cuidados.setText(planCuidadosEnfermeria.get(planCuidadosEnfermeria.size()-1).getContenido());
+        try{
+            planCuidadosEnfermeriaList = PlanCuidadosEnfermeria.find(PlanCuidadosEnfermeria.class, "ID_EMPLEADO = ?",idEmpleado);
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+        if(!planCuidadosEnfermeriaList.isEmpty()) {
+            txt_plan_cuidados.setText(planCuidadosEnfermeriaList.get(0).getContenido());
         }
     }
 
     public void writePlanCuidadosEnfermeria(){
-        PlanCuidadosEnfermeria nuevo_planCuidadosEnfermeria = new PlanCuidadosEnfermeria();
-
         String texto = txt_plan_cuidados.getText().toString();
 
-        if(!texto.isEmpty()){
-            nuevo_planCuidadosEnfermeria.setContenido(texto);
-            try{
-                nuevo_planCuidadosEnfermeria.save();
-                Toast.makeText(getContext(),"Plan Guardado",Toast.LENGTH_SHORT).show();
-            }catch(Exception e){
-                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        }else{
-            Toast.makeText(getContext(),"No se guardo nada porque no se escribio nada",Toast.LENGTH_LONG).show();
-        }
+        PlanCuidadosEnfermeria nuevo_plan = new PlanCuidadosEnfermeria();
+        nuevo_plan.setIdEmpleado(idEmpleado);
+        nuevo_plan.setContenido(texto);
+        nuevo_plan.save();
+        Toast.makeText(getContext(),"Plan de enfermeria guardado",Toast.LENGTH_LONG).show();
     }
 }

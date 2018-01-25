@@ -12,26 +12,30 @@ import android.widget.Toast;
 import ec.edu.espol.ingsoft.fichamedica.R;
 
 public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedicaMenuFragment.OnItemSelectedListener {
-
-    private static final String TAG = "ConsultaMedicaTabFragment";
     String idEmpleado;
+    Bundle bun;
+    private static final String TAG = "ConsultaMedicaTabFragment";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.consulta_medica_tab_fragment, container, false);
         idEmpleado = getArguments().getString("idEmpleado");
+        Toast.makeText(getContext(),"Cedula: "+idEmpleado,Toast.LENGTH_SHORT).show();
+        bun = new Bundle();
+        bun.putString("idEmpleado",idEmpleado);
 
         // Create a new Fragment to be placed in the activity layout
         ConsultaMedicaMenuFragment sidemenuFragment = new ConsultaMedicaMenuFragment();
 
         // Agregar la primera vista "Signos Vitales" por defecto
-        SignosVitalesContentFragment signosVitalesFragment = new SignosVitalesContentFragment();
+        //SignosVitalesContentFragment signosVitalesFragment = new SignosVitalesContentFragment();
+        //sidemenuFragment.setArguments(bun);
 
         // Agregar el fragmento de contenido al FrameLayout 'content_container'
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.sidemenu_container, sidemenuFragment);
-        transaction.replace(R.id.content_container, signosVitalesFragment);
+        //transaction.replace(R.id.content_container, signosVitalesFragment);
         transaction.commit();
 
         return view;
@@ -43,25 +47,31 @@ public class ConsultaMedicaTabFragment extends Fragment implements ConsultaMedic
 
         if (type == 1) {
             fragment = new SignosVitalesContentFragment();
+            fragment.setArguments(bun);
         } else if (type == 2) {
             fragment = new RevisionMedicaContentFragment();
+            fragment.setArguments(bun);
         } else if (type == 3) {
             fragment = new ExamenFisicoContentFragment();
+            fragment.setArguments(bun);
         } else if (type == 4) {
             fragment = new DiagnosticoContentFragment();
-            Bundle bun = new Bundle();
-            bun.putString("idEmpleado",idEmpleado);
             fragment.setArguments(bun);
         } else if (type == 5) {
             fragment = new PrescripcionContentFragment();
+            fragment.setArguments(bun);
         } else if (type == 6) {
             fragment = new PermisoMedicoContentFragment();
+            fragment.setArguments(bun);
         } else if (type == 7) {
             fragment = new AnexarContentFragment();
+            fragment.setArguments(bun);
         } else if (type == 8) {
             fragment = new AntecedentesPatologicosPersonalesFragment();
+            fragment.setArguments(bun);
         } else if (type == 9) {
             fragment = new AntecedentesPatologicosFamiliaresFragment();
+            fragment.setArguments(bun);
         } else {
             return;
         }

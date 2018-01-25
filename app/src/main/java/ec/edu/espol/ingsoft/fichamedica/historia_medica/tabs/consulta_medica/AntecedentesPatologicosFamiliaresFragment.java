@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ import ec.edu.espol.ingsoft.fichamedica.model.AntecedentesPatologicosFamiliares;
  */
 
 public class AntecedentesPatologicosFamiliaresFragment extends Fragment {
-
+    String idEmpleado;
     private static final String TAG = "AntecedentesPatologicosFamiliaresFragment";
     private ListView lvMiListaAntecedentesFamiliares;
     private AntecedentesPatologicosFamiliaresAdapter adaptador;
@@ -28,6 +29,8 @@ public class AntecedentesPatologicosFamiliaresFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.antecedentes_patologicos_familiares_content_fragment, container, false);
+        idEmpleado = getArguments().getString("idEmpleado");
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         lvMiListaAntecedentesFamiliares = (ListView) view.findViewById(R.id.lvMiListaAntecedentesPatologicosFamiliares);
         adaptador = new AntecedentesPatologicosFamiliaresAdapter(view.getContext(), R.layout.antecedentes_patologicos_familiarespersonales_items,getArrayItems());

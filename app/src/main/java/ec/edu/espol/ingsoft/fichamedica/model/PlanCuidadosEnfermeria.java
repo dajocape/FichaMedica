@@ -1,13 +1,14 @@
 package ec.edu.espol.ingsoft.fichamedica.model;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Unique;
 
 /**
  * Created by jorge on 19/1/2018.
  */
 
 public class PlanCuidadosEnfermeria extends SugarRecord {
-
+    @Unique
     String idEmpleado;
     String contenido;
 

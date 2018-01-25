@@ -15,7 +15,7 @@ import ec.edu.espol.ingsoft.fichamedica.model.RevisionMedica;
 import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
 public class RevisionMedicaContentFragment extends Fragment {
-
+    String idEmpleado;
     private static final String TAG = "RevisionMedicaContentFragment";
     EditText txtEnfermedad,
             txtRevision;
@@ -25,6 +25,8 @@ public class RevisionMedicaContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.revision_medica_content_fragment, container, false);
+        idEmpleado = getArguments().getString("idEmpleado");
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         txtEnfermedad =view.findViewById(R.id.text_enfermedad);
         txtRevision =view.findViewById(R.id.text_revision);

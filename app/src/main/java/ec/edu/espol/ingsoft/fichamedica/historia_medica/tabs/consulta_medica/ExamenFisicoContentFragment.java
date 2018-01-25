@@ -19,7 +19,7 @@ import ec.edu.espol.ingsoft.fichamedica.model.RevisionMedica;
  */
 
 public class ExamenFisicoContentFragment extends Fragment {
-
+    String idEmpleado;
     private static final String TAG = "ExamenFisicoContentFragment";
 
     EditText txtDescripcion;
@@ -29,6 +29,8 @@ public class ExamenFisicoContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.examen_fisico_content_fragment, container, false);
+        idEmpleado = getArguments().getString("idEmpleado");
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         txtDescripcion = view.findViewById(R.id.text_revision);
 

@@ -14,7 +14,7 @@ import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
 public class SignosVitalesEnfermeriaContentFragment extends Fragment {
-
+    String idEmpleado;
     private static final String TAG = "SignosVitalesEnfermeriaContentFragment";
 
     EditText txt_presion_arterial,
@@ -26,7 +26,7 @@ public class SignosVitalesEnfermeriaContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.signos_vitales_enfermeria_content_fragment, container, false);
-
+        idEmpleado = getArguments().getString("idEmpleado");
         txt_presion_arterial = view.findViewById(R.id.txt_presion_arterial);
         txt_pulso_por_minuto = view.findViewById(R.id.txt_pulso_por_minuto);
         txt_temperatura = view.findViewById(R.id.txt_temperatura);

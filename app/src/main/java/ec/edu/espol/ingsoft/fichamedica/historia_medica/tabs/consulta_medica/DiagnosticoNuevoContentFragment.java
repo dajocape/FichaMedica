@@ -23,10 +23,8 @@ import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.Enfermedad;
 
 public class DiagnosticoNuevoContentFragment extends Fragment {
-
-    private static final String TAG = "DiagnosticoNuevoContentFragment";
-
     String idEmpleado;
+    private static final String TAG = "DiagnosticoNuevoContentFragment";
     ListView visualizadorLista;
     AutoCompleteTextView buscador;
     RadioButton pres,def;
@@ -42,8 +40,7 @@ public class DiagnosticoNuevoContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.diagnostico_nuevo_fragment, container, false);
         idEmpleado = getArguments().getString("idEmpleado");
-
-        Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         pres = (RadioButton)view.findViewById(R.id.rbPres);
         def  = (RadioButton)view.findViewById(R.id.rbDef);

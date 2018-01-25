@@ -17,11 +17,8 @@ import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.Diagnostico;
 
 public class DiagnosticoContentFragment extends Fragment {
-
     String idEmpleado;
-
     private static final String TAG = "DiagnosticoContentFragment";
-
     ListView visualizadorLista;
     ArrayList<Diagnostico> diagnosticosList;
     Button btnIrDiagnosticoNuevo;
@@ -31,9 +28,9 @@ public class DiagnosticoContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.diagnostico_fragment, container, false);
         idEmpleado = getArguments().getString("idEmpleado");
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         llenarListaDiagnosticos();
-
         DiagnosticosAdapter adapter = new DiagnosticosAdapter(view.getContext(),R.layout.listview_item_row_diagnosticos,diagnosticosList);
 
         btnIrDiagnosticoNuevo = (Button)view.findViewById(R.id.botonIngreso);
@@ -43,7 +40,6 @@ public class DiagnosticoContentFragment extends Fragment {
             visualizadorLista.setAdapter(adapter);
         }
 
-        Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         btnIrDiagnosticoNuevo.setOnClickListener(new View.OnClickListener() {
             @Override

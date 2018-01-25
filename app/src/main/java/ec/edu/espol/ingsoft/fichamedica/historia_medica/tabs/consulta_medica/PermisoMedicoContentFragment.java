@@ -29,7 +29,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class PermisoMedicoContentFragment extends Fragment {
-
+    String idEmpleado;
     Switch switch_generar;
     Calendar calendar;
     Date fecha_ini, fecha_fin;
@@ -43,6 +43,8 @@ public class PermisoMedicoContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.permiso_medico_content_fragment, container, false);
+        idEmpleado = getArguments().getString("idEmpleado");
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
         calendar = Calendar.getInstance();
 
         fecha_ini = null;

@@ -18,13 +18,15 @@ import ec.edu.espol.ingsoft.fichamedica.model.ExamenFisico;
  */
 
 public class AnexarContentFragment extends Fragment {
-
+    String idEmpleado;
     private static final String TAG = "AnexarContentFragment";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.anexar_content_fragment, container, false);
+        idEmpleado = getArguments().getString("idEmpleado");
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         return view;
     }

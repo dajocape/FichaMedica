@@ -14,17 +14,23 @@ import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
 public class SignosVitalesContentFragment extends Fragment {
-
+    String idEmpleado;
     private static final String TAG = "SignosVitalesContentFragment";
     EditText txt_presion_arterial,
-            txt_pulso_por_minuto,
-            txt_temperatura;
+             txt_pulso_por_minuto,
+             txt_temperatura;
     Button btn_guardar;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.signos_vitales_content_fragment,container,false);
+
+        //Esto es lo que hace que se caiga porque no encuentra idEmpleado cuando se pone
+        //que signos vitales sea el layout por defecto de consulta medica en ConsultaMedicaTabFragment
+        idEmpleado = getArguments().getString("idEmpleado");
+
+        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
         txt_presion_arterial = view.findViewById(R.id.txt_presion_arterial);
         txt_pulso_por_minuto = view.findViewById(R.id.txt_pulso_por_minuto);
@@ -35,13 +41,11 @@ public class SignosVitalesContentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 SignosVitales signosVitalesPaciente = new SignosVitales();
-
+                signosVitalesPaciente.setIdEmpleado(idEmpleado);
                 signosVitalesPaciente.setPresion_arterial(Integer.parseInt(txt_presion_arterial.getText().toString()));
                 signosVitalesPaciente.setFrecuencia_cardiaca(Integer.parseInt(txt_pulso_por_minuto.getText().toString()));
                 signosVitalesPaciente.setTemperatura(Integer.parseInt(txt_temperatura.getText().toString()));
-
                 signosVitalesPaciente.save();
-
                 Toast.makeText(getContext(),"Signos Vitales Guardados exitosamente",Toast.LENGTH_SHORT).show();
             }
         });

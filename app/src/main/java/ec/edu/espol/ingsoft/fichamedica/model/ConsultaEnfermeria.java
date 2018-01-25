@@ -1,9 +1,11 @@
 package ec.edu.espol.ingsoft.fichamedica.model;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Unique;
 
 public class ConsultaEnfermeria extends SugarRecord {
 
+    @Unique
     String idEmpleado;
     String motivo_atencion;
     String diagnostico_enfermeria;
