@@ -14,14 +14,13 @@ import java.util.List;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.ConsultaEnfermeria;
-import ec.edu.espol.ingsoft.fichamedica.model.PlanCuidadosEnfermeria;
 
 public class PlanCuidadosEnfermeriaContentFragment extends Fragment {
     String idEmpleado;
     private static final String TAG = "SignosVitalesContentFragment";
     EditText txt_plan_cuidados;
     Button btn_guardar;
-    List<PlanCuidadosEnfermeria> planCuidadosEnfermeriaList;
+    List<ConsultaEnfermeria> consultaEnfermeriaList;
 
     @Nullable
     @Override
@@ -45,23 +44,34 @@ public class PlanCuidadosEnfermeriaContentFragment extends Fragment {
 
     public void readPlanCuidadosEnfermeria(){
         try{
-            planCuidadosEnfermeriaList = PlanCuidadosEnfermeria.find(PlanCuidadosEnfermeria.class, "ID_EMPLEADO = ?",idEmpleado);
+            consultaEnfermeriaList = ConsultaEnfermeria.findWithQuery(ConsultaEnfermeria.class,"Select * from CONSULTA_ENFERMERIA where ID_EMPLEADO = ?;",idEmpleado);
         }catch (Exception e){
             Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
 
-        if(!planCuidadosEnfermeriaList.isEmpty()) {
-            txt_plan_cuidados.setText(planCuidadosEnfermeriaList.get(0).getContenido());
+        if(!consultaEnfermeriaList.isEmpty()) {
+            txt_plan_cuidados.setText(consultaEnfermeriaList.get(0).getPlan_cuidados());
         }
     }
 
     public void writePlanCuidadosEnfermeria(){
         String texto = txt_plan_cuidados.getText().toString();
+        ConsultaEnfermeria consulta;
 
-        PlanCuidadosEnfermeria nuevo_plan = new PlanCuidadosEnfermeria();
-        nuevo_plan.setIdEmpleado(idEmpleado);
-        nuevo_plan.setContenido(texto);
-        nuevo_plan.save();
-        Toast.makeText(getContext(),"Plan de enfermeria guardado",Toast.LENGTH_LONG).show();
+        try{
+            consultaEnfermeriaList = ConsultaEnfermeria.findWithQuery(ConsultaEnfermeria.class,"Select * from CONSULTA_ENFERMERIA where ID_EMPLEADO = ?;",idEmpleado);
+            if(consultaEnfermeriaList.isEmpty()){
+                consulta = new ConsultaEnfermeria();
+                consulta.setIdEmpleado(idEmpleado);
+                consulta.setPlan_cuidados(texto);
+                consulta.save();
+            }else{
+                consulta = consultaEnfermeriaList.get(0);
+                consulta.setPlan_cuidados(texto);
+                consulta.save();
+            }
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -14,7 +14,6 @@ import java.util.List;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.ConsultaEnfermeria;
-import ec.edu.espol.ingsoft.fichamedica.model.MotivoConsultaEnfermeria;
 
 public class MotivoConsultaEnfermeriaContentFragment extends Fragment {
     String idEmpleado;
@@ -23,7 +22,7 @@ public class MotivoConsultaEnfermeriaContentFragment extends Fragment {
     EditText txt_motivo_atencion;
     Button btn_guardar;
 
-    List<MotivoConsultaEnfermeria> motivoConsultaEnfermeriaList;
+    List<ConsultaEnfermeria> consultaEnfermeriaList;
 
     @Nullable
     @Override
@@ -48,24 +47,37 @@ public class MotivoConsultaEnfermeriaContentFragment extends Fragment {
 
     private void readMotivoConsultaEnfermeria() {
         try{
-            motivoConsultaEnfermeriaList = MotivoConsultaEnfermeria.find(MotivoConsultaEnfermeria.class, "ID_EMPLEADO = ?",idEmpleado);
+            consultaEnfermeriaList = ConsultaEnfermeria.findWithQuery(ConsultaEnfermeria.class,"Select * from CONSULTA_ENFERMERIA where ID_EMPLEADO = ?;",idEmpleado);
         }catch (Exception e){
             Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
 
-        if(!motivoConsultaEnfermeriaList.isEmpty()) {
-            txt_motivo_atencion.setText(motivoConsultaEnfermeriaList.get(0).getContenido());
+        if(!consultaEnfermeriaList.isEmpty()) {
+            txt_motivo_atencion.setText(consultaEnfermeriaList.get(0).getMotivo_atencion());
         }
 
     }
     private void writeMotivoConsultaEnfermeria() {
         String texto = txt_motivo_atencion.getText().toString();
+        ConsultaEnfermeria consulta;
 
-        MotivoConsultaEnfermeria nuevo_motivo = new MotivoConsultaEnfermeria();
-        nuevo_motivo.setIdEmpleado(idEmpleado);
-        nuevo_motivo.setContenido(texto);
-        nuevo_motivo.save();
-        Toast.makeText(getContext(),"Motivo guardado",Toast.LENGTH_LONG).show();
+        try{
+            consultaEnfermeriaList = ConsultaEnfermeria.findWithQuery(ConsultaEnfermeria.class,"Select * from CONSULTA_ENFERMERIA where ID_EMPLEADO = ?;",idEmpleado);
+            if(consultaEnfermeriaList.isEmpty()){
+                consulta = new ConsultaEnfermeria();
+                consulta.setIdEmpleado(idEmpleado);
+                consulta.setMotivo_atencion(texto);
+                consulta.save();
+                Toast.makeText(getContext(),"Motivo Guardado",Toast.LENGTH_LONG).show();
+            }else{
+                consulta = consultaEnfermeriaList.get(0);
+                consulta.setMotivo_atencion(texto);
+                consulta.save();
+                Toast.makeText(getContext(),"Motivo Guardado",Toast.LENGTH_LONG).show();
+            }
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
     }
 }
 
