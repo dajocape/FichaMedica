@@ -10,45 +10,91 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
 public class SignosVitalesContentFragment extends Fragment {
     String idEmpleado;
     private static final String TAG = "SignosVitalesContentFragment";
-    EditText txt_presion_arterial,
-             txt_pulso_por_minuto,
-             txt_temperatura;
-    Button btn_guardar;
+
+    EditText presionSistolica;
+    EditText presionDistolica;
+    EditText pulsosPorMinuto;
+    EditText temperatura;
+
+    Button masSis;
+    Button menosSis;
+    Button masDis;
+    Button menosDis;
+    Button masPulso;
+    Button menosPulso;
+    Button masTemperatura;
+    Button menosTemperatura;
+
+    Button guardar;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.signos_vitales_content_fragment,container,false);
-
         //Esto es lo que hace que se caiga porque no encuentra idEmpleado cuando se pone
         //que signos vitales sea el layout por defecto de consulta medica en ConsultaMedicaTabFragment
         idEmpleado = getArguments().getString("idEmpleado");
 
-        //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
+        presionSistolica = (EditText) view.findViewById(R.id.txt_presion_distolica);
+        presionDistolica = (EditText) view.findViewById(R.id.txt_presion_sistolica);
+        pulsosPorMinuto = (EditText) view.findViewById(R.id.txt_pulso);
+        temperatura = (EditText) view.findViewById(R.id.txt_temperatura);
 
-        txt_presion_arterial = view.findViewById(R.id.txt_presion_arterial);
-        txt_pulso_por_minuto = view.findViewById(R.id.txt_pulso_por_minuto);
-        txt_temperatura = view.findViewById(R.id.txt_temperatura);
-        btn_guardar = view.findViewById(R.id.btn_guardar);
+        masSis = (Button) view.findViewById(R.id.btn_mas_sis);
+        menosSis = (Button) view.findViewById(R.id.btn_menos_sis);
+        masDis = (Button) view.findViewById(R.id.btn_mas_dis);
+        menosDis = (Button) view.findViewById(R.id.btn_menos_dis);
+        masPulso = (Button) view.findViewById(R.id.btn_mas_pulso);
+        menosPulso = (Button) view.findViewById(R.id.btn_menos_pulso);
+        masTemperatura = (Button) view.findViewById(R.id.btn_mas_temperatura);
+        menosTemperatura = (Button) view.findViewById(R.id.btn_menos_temperatura);
 
-        btn_guardar.setOnClickListener(new View.OnClickListener() {
+        guardar = (Button) view.findViewById(R.id.btn_guardar);
+
+        guardar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                SignosVitales signosVitalesPaciente = new SignosVitales();
-                signosVitalesPaciente.setIdEmpleado(idEmpleado);
-                signosVitalesPaciente.setPresion_arterial(Integer.parseInt(txt_presion_arterial.getText().toString()));
-                signosVitalesPaciente.setFrecuencia_cardiaca(Integer.parseInt(txt_pulso_por_minuto.getText().toString()));
-                signosVitalesPaciente.setTemperatura(Integer.parseInt(txt_temperatura.getText().toString()));
-                signosVitalesPaciente.save();
-                Toast.makeText(getContext(),"Signos Vitales Guardados exitosamente",Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                writeSignosVitales();
             }
         });
+
         return view;
+    }
+
+    public void writeSignosVitales(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        Date currentTime = Calendar.getInstance().getTime();
+        String fechaActual = simpleDateFormat.format(currentTime);
+        int presionArterialSistolica = Integer.parseInt(presionSistolica.getText().toString());
+        int presionArterialDistolica = Integer.parseInt(presionDistolica.getText().toString());
+        int pulsos = Integer.parseInt(pulsosPorMinuto.getText().toString());
+        float tempert = Float.parseFloat(temperatura.getText().toString());
+
+        SignosVitales signosVitales = new SignosVitales();
+        signosVitales.setIdEmpleado(idEmpleado);
+        signosVitales.setConsultaMedica(true);
+        signosVitales.setFecha(fechaActual);
+        signosVitales.setPresionArterialSistolica(presionArterialSistolica);
+        signosVitales.setPresionArterialDistolica(presionArterialDistolica);
+        signosVitales.setFrecuenciaCardiaca(pulsos);
+        signosVitales.setTemperatura(tempert);
+
+        try{
+            signosVitales.save();
+            Toast.makeText(getContext(),"Signos vitales guardados",Toast.LENGTH_LONG).show();
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
     }
 }

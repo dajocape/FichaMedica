@@ -28,11 +28,11 @@ public class TempVerSignosVitalesTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.ver_signos_vitales_fragment, container, false);
 
         lstViewSignosVitales = view.findViewById(R.id.lst_signos_vitales);
-        cargarSignos();
+        //cargarSignos();
 
         return view;
     }
-
+/*
     public void cargarSignos(){
         listaSignosVitales = SignosVitales.listAll(SignosVitales.class);
 
@@ -46,11 +46,11 @@ public class TempVerSignosVitalesTabFragment extends Fragment {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,signosVitales);
         lstViewSignosVitales.setAdapter(adapter);
-    }
+    }*/
 
     @Override
     public void onResume() {
         super.onResume();
-        cargarSignos();
+        //cargarSignos();
     }
 }

@@ -32,20 +32,108 @@
                 android:layout_marginTop="20dp"
                 android:background="#8EAAFC"
                 android:text="Presion Arterial"
+                android:paddingLeft="10sp"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txt_presion_arterial"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:hint="No refiere toma de presion"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
-                android:textSize="16sp" />
+                android:layout_marginRight="12sp"
+                android:layout_marginLeft="12sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btn_mas_sis"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="+"
+                        android:textSize="18dp" />
+
+                    <EditText
+                        android:id="@+id/txt_presion_sistolica"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:inputType="numberSigned"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/btn_menos_sis"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="-"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textColor="@android:color/black"
+                    android:textSize="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btn_mas_dis"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="+"
+                        android:textSize="18dp" />
+
+                    <EditText
+                        android:id="@+id/txt_presion_distolica"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:inputType="numberSigned"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/btn_menos_dis"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="-"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:textColor="@android:color/black"
+                    android:text="Sis/Dis"/>
+
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/textViewPulso"
@@ -53,23 +141,66 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
                 android:background="#8EAAFC"
                 android:text="Pulso por minuto"
+                android:paddingLeft="10sp"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txt_pulso_por_minuto"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:hint="No refiere toma de pulso por minuto"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
-                android:textSize="16sp" />
+                android:layout_marginRight="12sp"
+                android:layout_marginLeft="12sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btn_mas_pulso"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="+"
+                        android:textSize="18dp" />
+
+                    <EditText
+                        android:id="@+id/txt_pulso"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:inputType="numberSigned"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/btn_menos_pulso"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="-"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:textColor="@android:color/black"
+                    android:text="PPM"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewTemperatura"
@@ -77,51 +208,73 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
                 android:background="#8EAAFC"
                 android:text="Temperatura"
                 android:textColor="#FFFFFF"
+                android:paddingLeft="10sp"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txt_temperatura"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:hint="No refiere toma de temperatura"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
-                android:textSize="16sp" />
+                android:layout_marginRight="12sp"
+                android:layout_marginLeft="12sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textMotivo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="#8EAAFC"
-                android:padding="10sp"
-                android:text="Motivo de la Consulta"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txt_motivo_consulta_enf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Motivo de la Consulta"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
-                android:textSize="16sp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btn_mas_temperatura"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="+"
+                        android:textSize="18dp" />
+
+                    <EditText
+                        android:id="@+id/txt_temperatura"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/btn_menos_temperatura"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="#8EAAFC"
+                        android:padding="0dp"
+                        android:text="-"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="°C"/>
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_guardar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20sp"
+                android:layout_marginTop="10dp"
                 android:text="Guardar"
                 android:textSize="20sp" />
 
