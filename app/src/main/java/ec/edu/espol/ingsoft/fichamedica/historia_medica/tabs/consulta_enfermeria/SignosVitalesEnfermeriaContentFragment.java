@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
@@ -36,6 +37,8 @@ public class SignosVitalesEnfermeriaContentFragment extends Fragment {
     Button menosTemperatura;
     Button btn_guardar;
 
+    List<SignosVitales> signosVitalesList;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +59,8 @@ public class SignosVitalesEnfermeriaContentFragment extends Fragment {
         masTemperatura = (Button) view.findViewById(R.id.btn_mas_temperatura);
         menosTemperatura = (Button) view.findViewById(R.id.btn_menos_temperatura);
         btn_guardar =     view.findViewById(R.id.btn_guardar);
+
+        cargarSignosVitales();
 
         masSis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +122,25 @@ public class SignosVitalesEnfermeriaContentFragment extends Fragment {
         return view;
     }
 
+    public void cargarSignosVitales(){
+        SignosVitales masActual;
+        try{
+            signosVitalesList = SignosVitales.findWithQuery(SignosVitales.class,"Select * from SIGNOS_VITALES where ID_EMPLEADO = ? AND IS_CONSULTA_ENFERMERIA = 1;",idEmpleado);
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+        if(!signosVitalesList.isEmpty()) {
+            masActual = signosVitalesList.get(signosVitalesList.size()-1);
+            presionSistolica.setText(String.valueOf(masActual.getPresionArterialSistolica()));
+            presionDistolica.setText(String.valueOf(masActual.getPresionArterialDistolica()));
+            pulsosPorMinuto.setText(String.valueOf(masActual.getFrecuenciaCardiaca()));
+            temperatura.setText(String.valueOf(masActual.getTemperatura()));
+        }else {
+            Toast.makeText(getContext(),"No existen signos vitales que mostrar",Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void writeSignosVitales(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         Date currentTime = Calendar.getInstance().getTime();
@@ -151,6 +175,7 @@ public class SignosVitalesEnfermeriaContentFragment extends Fragment {
 
     public void buttonPress(View view) {
         int valor;
+        float valor2;
         switch (view.getId()) {
             case R.id.btn_mas_sis:
                 if(presionSistolica.getText().toString().isEmpty()){
@@ -210,17 +235,17 @@ public class SignosVitalesEnfermeriaContentFragment extends Fragment {
                 if(temperatura.getText().toString().isEmpty()){
                     temperatura.setText(String.valueOf(1));
                 }else{
-                    valor = Integer.parseInt(temperatura.getText().toString())+1;
-                    temperatura.setText(String.valueOf(valor));
+                    valor2 = Float.parseFloat(temperatura.getText().toString())+1;
+                    temperatura.setText(String.valueOf(valor2));
                 }
                 break;
             case R.id.btn_menos_temperatura:
                 if(temperatura.getText().toString().isEmpty()){
                     temperatura.setText(String.valueOf(0));
                 }else{
-                    if(Integer.parseInt(temperatura.getText().toString())!=0){
-                        valor = Integer.parseInt(temperatura.getText().toString())-1;
-                        temperatura.setText(String.valueOf(valor));
+                    if(Float.parseFloat(temperatura.getText().toString())!=0){
+                        valor2 = Float.parseFloat(temperatura.getText().toString())-1;
+                        temperatura.setText(String.valueOf(valor2));
                     }
                 }
                 break;
