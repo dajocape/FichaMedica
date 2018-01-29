@@ -40,10 +40,9 @@ public class ExamenFisicoContentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ExamenFisico examenFisico = new ExamenFisico();
+                examenFisico.setIdEmpleado(idEmpleado);
                 examenFisico.setDescripcion(txtDescripcion.getText().toString());
-
                 examenFisico.save();
-
                 Toast.makeText(getContext(),"Datos de Examen físico Guardados exitosamente",Toast.LENGTH_SHORT).show();
             }
         });

@@ -39,6 +39,7 @@ public class RevisionMedicaContentFragment extends Fragment {
 
                 revisionMedica.setEnfermedad(txtEnfermedad.getText().toString());
                 revisionMedica.setRevision_organos_sistemas(txtRevision.getText().toString());
+                revisionMedica.setIdEmpleado(idEmpleado);
 
                 revisionMedica.save();
 

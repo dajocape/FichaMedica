@@ -115,7 +115,7 @@ public class PermisoMedicoContentFragment extends Fragment {
                 permiso.setEnfermedadCodigo(acCodigoCie10.getText().toString());
                 permiso.setObservacion(txtObservacion.getText().toString());
                 permiso.setDias(Integer.parseInt(tv_dias.getText().toString()));
-
+                permiso.setIdEmpleado(idEmpleado);
                 permiso.save();
 
                 Toast.makeText(getContext(),"Datos Guardados exitosamente",Toast.LENGTH_SHORT).show();

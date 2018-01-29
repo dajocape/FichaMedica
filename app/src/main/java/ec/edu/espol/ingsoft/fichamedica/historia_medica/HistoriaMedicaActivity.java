@@ -5,6 +5,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.List;
@@ -33,20 +36,34 @@ public class HistoriaMedicaActivity extends AppCompatActivity {
 
     private NonScrollableViewPager mViewPager;
 
+    EditText idEmpleado;
+    Button ok;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historia_medica);
         Log.d(TAG, "onCreate: Starting.");
+        idEmpleado = (EditText)findViewById(R.id.idEmpleado);
+        ok = (Button)findViewById(R.id.elegirEmpleado);
         llenarEnfermedades();
-
-        //crearEmpleado("0963518975");
-        //empleado = buscarEmpleado("0963518975");
-
-        crearEmpleado("0987456321");
-        empleado = buscarEmpleado("0987456321");
-
         bun = new Bundle();
+
+        //De aqui corte todo y lo puse en la funcion empleado para elegir entre empleados
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                empleado();
+            }
+        });
+    }
+
+    public void empleado(){
+        String cedula = idEmpleado.getText().toString();
+
+        crearEmpleado(cedula);
+        empleado = buscarEmpleado(cedula);
+
         bun.putString("idEmpleado",empleado.getCedula());
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
