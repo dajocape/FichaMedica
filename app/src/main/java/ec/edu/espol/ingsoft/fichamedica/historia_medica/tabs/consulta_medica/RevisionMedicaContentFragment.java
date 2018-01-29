@@ -10,16 +10,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.RevisionMedica;
-import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
+
 
 public class RevisionMedicaContentFragment extends Fragment {
-    String idEmpleado;
+
     private static final String TAG = "RevisionMedicaContentFragment";
-    EditText txtEnfermedad,
-            txtRevision;
-    Button btnGuardar;
+
+    String idEmpleado;
+    EditText enfermedad,
+            revision;
+    Button guardar;
+
+    List<RevisionMedica> revisionMedicaList;
 
     @Nullable
     @Override
@@ -28,17 +34,19 @@ public class RevisionMedicaContentFragment extends Fragment {
         idEmpleado = getArguments().getString("idEmpleado");
         //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
-        txtEnfermedad =view.findViewById(R.id.text_enfermedad);
-        txtRevision =view.findViewById(R.id.text_revision);
-        btnGuardar =view.findViewById(R.id.button_guardar);
+        enfermedad =view.findViewById(R.id.text_enfermedad);
+        revision =view.findViewById(R.id.text_revision);
+        guardar =view.findViewById(R.id.button_guardar);
 
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
+        cargarRevisionMedica();
+
+        guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RevisionMedica revisionMedica = new RevisionMedica();
 
-                revisionMedica.setEnfermedad(txtEnfermedad.getText().toString());
-                revisionMedica.setRevision_organos_sistemas(txtRevision.getText().toString());
+                revisionMedica.setEnfermedad(enfermedad.getText().toString());
+                revisionMedica.setRevision_organos_sistemas(revision.getText().toString());
                 revisionMedica.setIdEmpleado(idEmpleado);
 
                 revisionMedica.save();
@@ -48,4 +56,18 @@ public class RevisionMedicaContentFragment extends Fragment {
         });
         return view;
     }
+
+    public void cargarRevisionMedica(){
+        try{
+            revisionMedicaList = RevisionMedica.find(RevisionMedica.class, "ID_EMPLEADO = ?",idEmpleado);
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+        if(!revisionMedicaList.isEmpty()) {
+            enfermedad.setText(revisionMedicaList.get(revisionMedicaList.size()-1).getEnfermedad());
+            revision.setText(revisionMedicaList.get(revisionMedicaList.size()-1).getRevision_organos_sistemas());
+        }
+    }
+
 }

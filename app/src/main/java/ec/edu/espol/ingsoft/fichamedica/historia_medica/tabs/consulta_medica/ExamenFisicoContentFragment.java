@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.ExamenFisico;
 import ec.edu.espol.ingsoft.fichamedica.model.RevisionMedica;
@@ -22,8 +24,10 @@ public class ExamenFisicoContentFragment extends Fragment {
     String idEmpleado;
     private static final String TAG = "ExamenFisicoContentFragment";
 
-    EditText txtDescripcion;
-    Button btnGuardar;
+    EditText descripcion;
+    Button guardar;
+
+    List<ExamenFisico> examenFisicoList;
 
     @Nullable
     @Override
@@ -32,20 +36,35 @@ public class ExamenFisicoContentFragment extends Fragment {
         idEmpleado = getArguments().getString("idEmpleado");
         //Toast.makeText(getContext(),idEmpleado,Toast.LENGTH_SHORT).show();
 
-        txtDescripcion = view.findViewById(R.id.text_revision);
+        descripcion = view.findViewById(R.id.text_revision);
 
-        btnGuardar = view.findViewById(R.id.button_guardar);
+        guardar = view.findViewById(R.id.button_guardar);
 
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
+        cargarExamenFisico();
+
+        guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ExamenFisico examenFisico = new ExamenFisico();
                 examenFisico.setIdEmpleado(idEmpleado);
-                examenFisico.setDescripcion(txtDescripcion.getText().toString());
+                examenFisico.setDescripcion(descripcion.getText().toString());
                 examenFisico.save();
                 Toast.makeText(getContext(),"Datos de Examen físico Guardados exitosamente",Toast.LENGTH_SHORT).show();
             }
         });
         return view;
     }
+
+    public void cargarExamenFisico(){
+        try{
+            examenFisicoList = ExamenFisico.find(ExamenFisico.class, "ID_EMPLEADO = ?",idEmpleado);
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+        if(!examenFisicoList.isEmpty()) {
+            descripcion.setText(examenFisicoList.get(examenFisicoList.size()-1).getDescripcion());
+        }
+    }
+
 }

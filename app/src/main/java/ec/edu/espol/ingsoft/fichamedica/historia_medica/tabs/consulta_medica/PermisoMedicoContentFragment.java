@@ -20,12 +20,12 @@ import android.widget.Toast;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
 import ec.edu.espol.ingsoft.fichamedica.model.PermisoMedico;
-import ec.edu.espol.ingsoft.fichamedica.model.SignosVitales;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class PermisoMedicoContentFragment extends Fragment {
@@ -38,6 +38,7 @@ public class PermisoMedicoContentFragment extends Fragment {
     TextView tv_dias;
     int dia, mes, anio;
     Button btn_guardar;
+    List<PermisoMedico> permisoMedicoList;
 
     @Nullable
     @Override
@@ -104,6 +105,8 @@ public class PermisoMedicoContentFragment extends Fragment {
 
         calcNumDias();
 
+        cargarPermisoMedico();
+
         btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +127,6 @@ public class PermisoMedicoContentFragment extends Fragment {
 
         return view;
     }
-
 
     private void inicializarAutocompletado(final String[] nombresCie10, final String[] codigosCie10) {
         ArrayAdapter<String> adaptador;
@@ -233,6 +235,23 @@ public class PermisoMedicoContentFragment extends Fragment {
             tv_dias.setText(Long.toString(numDias + 1));
         }
 
+    }
+
+    public void cargarPermisoMedico(){
+        try{
+            permisoMedicoList = PermisoMedico.find(PermisoMedico.class, "ID_EMPLEADO = ?",idEmpleado);
+        }catch (Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+        if(!permisoMedicoList.isEmpty()) {
+            txtFechaDesde.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getFechaInicio());
+            txtFechaHasta.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getFechaFin());
+            txtObservacion.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getObservacion());
+            tv_dias.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getDias());
+            acCodigoCie10.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getEnfermedadCodigo());
+            acNombreCie10.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getEnfermedadNombre());
+        }
     }
 
     @Override

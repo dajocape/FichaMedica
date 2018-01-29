@@ -112,7 +112,6 @@ public class SignosVitalesEnfermeriaContentFragment extends Fragment {
         });
 
 
-
         btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
