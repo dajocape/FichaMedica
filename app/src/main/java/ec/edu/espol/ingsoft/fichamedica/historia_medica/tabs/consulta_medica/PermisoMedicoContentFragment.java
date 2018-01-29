@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ec.edu.espol.ingsoft.fichamedica.R;
+import ec.edu.espol.ingsoft.fichamedica.model.Enfermedad;
 import ec.edu.espol.ingsoft.fichamedica.model.PermisoMedico;
 
 import java.text.ParseException;
@@ -248,7 +249,6 @@ public class PermisoMedicoContentFragment extends Fragment {
             txtFechaDesde.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getFechaInicio());
             txtFechaHasta.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getFechaFin());
             txtObservacion.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getObservacion());
-            tv_dias.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getDias());
             acCodigoCie10.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getEnfermedadCodigo());
             acNombreCie10.setText(permisoMedicoList.get(permisoMedicoList.size()-1).getEnfermedadNombre());
         }

@@ -27,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text|textPersonName"
-                android:text="0987654321" />
+                android:hint="Ingrese el id de algun empleado"
+                android:inputType="text|textPersonName" />
 
             <Button
                 android:id="@+id/elegirEmpleado"
